@@ -1,5 +1,7 @@
 /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cp.dir
 /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_hist.dir
 /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_dct.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_quant.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cmp.dir
 /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/edit_cache.dir
 /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/build/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,7 @@
 #ifndef WAVHIST_H
 #define WAVHIST_H
 
+#include <fstream>
 #include <iostream>
 #include <vector>
 #include <map>
@@ -35,15 +36,17 @@ class WAVHist {
 	}
 
 	void average(){
-		std::cout << "Histogram of the average of the channels" << '\n';
+		std::ofstream out_file("MID_channel.txt");
 		for(auto [value, counter] : map_avg)
-			std::cout << value << '\t' << counter << '\n';
+			out_file << value << '\t' << counter << '\n';
+		out_file.close();
 	}
 
 	void difference(){
-		std::cout << "Histogram of the difference of the channels" << '\n';
+		std::ofstream out_file("SIDE_channel.txt");
 		for(auto [value, counter] : map_diff)
-			std::cout << value << '\t' << counter << '\n';
+			out_file << value << '\t' << counter << '\n';
+		out_file.close();
 	}
 };
 

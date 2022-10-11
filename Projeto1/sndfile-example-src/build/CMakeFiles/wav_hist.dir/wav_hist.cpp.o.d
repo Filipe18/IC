@@ -156,7 +156,11 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: \
  /usr/include/c++/11/bits/vector.tcc /usr/include/sndfile.hh \
  /usr/include/sndfile.h \
  /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/wav_hist.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
