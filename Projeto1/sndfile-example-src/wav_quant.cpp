@@ -54,7 +54,4 @@ int main(int argc, char *argv[]) {
     }
 	quant.writetoWavFile(sfhOut);
 
-
-
-
 }

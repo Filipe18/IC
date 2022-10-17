@@ -1,5 +1,5 @@
 CMakeFiles/wav_cp.dir/wav_cp.cpp.o: \
- /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/wav_cp.cpp \
+ /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/wav_cp.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

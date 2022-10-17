@@ -1,5 +1,5 @@
 CMakeFiles/wav_quant.dir/wav_quant.cpp.o: \
- /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/wav_quant.cpp \
+ /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/wav_quant.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -155,7 +155,7 @@ CMakeFiles/wav_quant.dir/wav_quant.cpp.o: \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /usr/include/sndfile.hh \
  /usr/include/sndfile.h \
- /home/fastmiguel099/Documents/Universidade/IC/Projeto1/sndfile-example-src/wav_quant.h \
+ /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/wav_quant.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \
