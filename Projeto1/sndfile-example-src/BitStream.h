@@ -11,25 +11,23 @@ using namespace std;
 
 class BitStream {
     private:
-    std::fstream file;
-    int size; //tamanho do ficheiro
-    std::string mode; //tipo de ficheiro, escrita ou leitura
+    //nome do ficheiro
     std::string name;
+    std::fstream file;
+    //tamanho do ficheiro
+    int size;
+    //tipo de ficheiro -> escrita ou leitura       
+    std::string mode;  
     //Array de bits
     std::vector<int> bitArr; 
-    //Array que contem varios arrays de 8 bits
-    std::vector<std::vector<int>> byteArr; 
     //variavel que contem a posicao do bit atual no array de bits
     int pointerBit;
-    //variavel que contem a posicao do array atual no array de bytes
-    int pointerByte;   
 
     public:
         BitStream(std::string filename, std::string tipo){ 
             if(tipo == 'w'){ // write, mode = 0
                 file = fstream(filename, ios::binary | ios::out);
                 pointerBit = 0;
-                pointerByte = 0;
             }else if(tipo == 'r'){  // read, mode = 1
                 file = fstream(filename, std::ios::binary | std::ios::in);
                 pointerBit = 0;
@@ -41,26 +39,12 @@ class BitStream {
             }
         }
 
-        //Função para ler um byte (=) 8 bits
-        // e guardar num array
-        std::vector<int> getByte(char byte){
-            //bitArr[0] = bit7
-            //bitArr[1] = bit6
-            //bitArr[2] = bit5
-            std::vector<int> arrayBits;
-
-            for(int i = 7; i >= 0; i--){
-                arrayBits.push_back((byte >> i) & 0x01);
-            }
-            return arrayBits;
-        }
-
         int readBit(){ 
             if(mode == 0) throw runtime_error("Cannot read in 'w' mode");
             if(pointerBit == 0){
                 char byte;
-                file.read(reinterpret_cast<char*>(&byte), 1);
-                bitArr = getByte(byte);
+                file.read((&byte), 1);
+                bitArr = getBit(byte);
             }
 
             int bit = bitArr[pointerBit];
@@ -72,13 +56,13 @@ class BitStream {
         std::vector<int> readNbits(int n){
             if(mode == "w") throw runtime_error("Cannot read in 'w' mode");
             
-            std::vector arrayNbits;
+            std::vector<int> arrayNbits;
         
             for(int i = 0; i < n; i++){
                 if(pointerBit == 0){
                     char byte;
-                    file.read(reinterpret_cast<char*>(&byte), 1);
-                    bitArr = getByte(byte);
+                    file.read(&byte, 1);
+                    bitArr = getbit(byte);
                 }
                 arrayNbits.push_back(bitArr[pointerBit]);
                 pointerBit == pointerBit + 1;
@@ -91,25 +75,72 @@ class BitStream {
             return arrayNbits;
         }
 
-         void writeBit(char bit){
-            if(mode == 1) throw runtime_error("Cannot write in 'r' mode");
-            if(pointer == 1){
-                buffer |= (bit & 0x01);
-                file.write(reinterpret_cast<char*>(&buffer), 1);
-                buffer = 0;
-                pointer = 8;
-                return;
-            }       
-            pointer--;
-            buffer |= ((bit & 0x01) << pointer);
+         void writeBit(int bit){
+            if(mode == "r") throw runtime_error("Cannot write in 'r' mode");    
+            //ver se temos 1 byte
+            //caso sim, escrever no ficheiro
+            if(pointerBit == 8){
+                char byte = getByte(bitArr);
+                file.write((&byte), 1);            
+                pointerBit = 0;//reset no ponteiro
+            }
+            //se o ponteiro é 0, entao é necessario 
+            //criar um array para guardar 1 byte
+            if(pointerBit == 0){
+                std::vector<int> bitArr;
+            }
+            //Adicionar ao array o bit que se pretende escrever
+            bitArr[pointerBit] = bit;
+            pointerBit = pointerBit + 1;
         }  
 
-        void writeNbits(char* bits, int n){    
-            if(mode == 1) throw runtime_error("Cannot write in 'r' mode");
-            for(int i = 0; i < n; i++){
-                writeBit(bits[i]);
+        void writeNbits(std::vector<int> array){    
+            if(mode == "r") throw runtime_error("Cannot write in 'r' mode");
+            
+            //for para percorrer todos os bits
+            for(int i = 0; i < array.size(); i++){
+                if(pointerBit == 8){
+                    char byte = getByte(bitArr);
+                    file.write((&byte), 1);            
+                    pointerBit = 0;//reset no ponteiro
+                }
+                //se o ponteiro é 0, entao é necessario 
+                //criar um array para guardar 1 byte
+                if(pointerBit == 0){
+                    std::vector<int> bitArr;
+                }
+                //Adicionar ao array os bits que se pretende escrever no ficheiro
+                bitArr[pointerBit] = array[i];
+                pointerBit = pointerBit + 1;
+            }  
+        }
+
+        //Função para ler um byte (=) 8 bits
+        //e guardar num array
+        std::vector<int> getBit(char byte){
+            //bitArr[0] = bit7
+            //bitArr[1] = bit6
+            std::vector<int> arrayBits;
+
+            for(int i = 7; i >= 0; i--){
+                arrayBits.push_back((byte >> i) & 0x01);
             }
+            return arrayBits;
         }      
+
+        //funcao para obter um byte apartir do array de bits
+        char getByte(std::vector<int> array){
+            char byte = 0;
+            int counter = 7;
+            for(int i = 0; i < 8; i++){
+                byte |= array[i] << counter;
+                counter--;
+            }
+            return byte;
+        }
+
+
+
 };
 
 #endif
