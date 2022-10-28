@@ -1,7 +1,8 @@
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cp.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_hist.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_dct.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_quant.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cmp.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/edit_cache.dir
-/home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/rebuild_cache.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cp.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_hist.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_dct.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_quant.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_cmp.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/BitStream.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/edit_cache.dir
+/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles/rebuild_cache.dir

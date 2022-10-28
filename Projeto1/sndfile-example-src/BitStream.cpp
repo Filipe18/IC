@@ -1,4 +1,4 @@
-include "BitStream.hpp"
+#include "BitStream.h"
 
 #include <math.h>
 #include <string>

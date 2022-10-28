@@ -1,5 +1,5 @@
 CMakeFiles/wav_cmp.dir/wav_cmp.cpp.o: \
- /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/wav_cmp.cpp \
+ /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/wav_cmp.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

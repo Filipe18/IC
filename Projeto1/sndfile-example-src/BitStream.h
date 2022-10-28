@@ -1,0 +1,83 @@
+#ifndef BITSTREAM_H
+#define BITSTREAM_H
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdlib.h>
+#include <map>
+
+using namespace std;
+
+class BitStream {
+    private:
+    fstream file;
+    int size; //tamanho do ficheiro
+    unsigned char buffer; // contem 8 bits
+    int pointer; // goes from 0 to 7
+    int mode;   // 0-> write && 1 -> read
+
+    public:
+        BitStream(){
+            
+        }
+
+        BitStream(const char *filename, char tipo){ 
+            if(tipo == 'w'){ // write, mode = 0
+                file = fstream(filename, ios::binary | ios::out);
+                pointer = 8;
+                mode = 0;
+            }else if(tipo == 'r'){  // read, mode = 1
+                file = fstream(filename, ios::binary | ios::in);
+                pointer = 0;
+                mode = 1;
+                file.seekg(0, ios::end);
+                size = file.tellg();
+                file.seekg(0, ios::beg);
+            }else{
+                throw runtime_error("Wrong file open mode");
+            }
+            buffer = 0;
+            if(!file.is_open())
+                throw runtime_error("Could not open file");
+        }
+
+        void writeBit(char bit){
+            if(mode == 1) throw runtime_error("Cannot write in 'r' mode");
+            if(pointer == 1){
+                buffer |= (bit & 0x01);
+                file.write(reinterpret_cast<char*>(&buffer), 1);
+                buffer = 0;
+                pointer = 8;
+                return;
+            }       
+            pointer--;
+            buffer |= ((bit & 0x01) << pointer);
+        }  
+
+        unsigned char readBit(){ 
+            if(mode == 0) throw runtime_error("Cannot read in 'w' mode");
+            if(pointer == 0){
+                pointer = 8;
+                file.read(reinterpret_cast<char*>(&buffer), 1);
+            }
+            pointer--;
+            return (buffer >> pointer) & 0x01;
+        }
+
+        void writeNbits(char* bits, int n){    
+            if(mode == 1) throw runtime_error("Cannot write in 'r' mode");
+            for(int i = 0; i < n; i++){
+                writeBit(bits[i]);
+            }
+        }
+
+        void readNbits(char* bits, int n){
+            if(mode == 0) throw runtime_error("Cannot read in 'w' mode");
+            for(int i = 0; i < n; i++){
+                bits[i] = readBit();
+            }
+        }
+};
+
+#endif

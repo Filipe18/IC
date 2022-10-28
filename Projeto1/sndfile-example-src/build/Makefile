@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antunes/Desktop/IC/Projeto1/sndfile-example-src
+CMAKE_SOURCE_DIR = /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build
+CMAKE_BINARY_DIR = /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -180,6 +180,43 @@ wav_cmp: cmake_check_build_system
 wav_cmp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/build
 .PHONY : wav_cmp/fast
+
+#=============================================================================
+# Target rules for targets named BitStream
+
+# Build rule for target.
+BitStream: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BitStream
+.PHONY : BitStream
+
+# fast build rule for target.
+BitStream/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/build
+.PHONY : BitStream/fast
+
+BitStream.o: BitStream.cpp.o
+.PHONY : BitStream.o
+
+# target to build an object file
+BitStream.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.o
+.PHONY : BitStream.cpp.o
+
+BitStream.i: BitStream.cpp.i
+.PHONY : BitStream.i
+
+# target to preprocess a source file
+BitStream.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.i
+.PHONY : BitStream.cpp.i
+
+BitStream.s: BitStream.cpp.s
+.PHONY : BitStream.s
+
+# target to generate assembly for a file
+BitStream.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.s
+.PHONY : BitStream.cpp.s
 
 wav_cmp.o: wav_cmp.cpp.o
 .PHONY : wav_cmp.o
@@ -309,11 +346,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... BitStream"
 	@echo "... wav_cmp"
 	@echo "... wav_cp"
 	@echo "... wav_dct"
 	@echo "... wav_hist"
 	@echo "... wav_quant"
+	@echo "... BitStream.o"
+	@echo "... BitStream.i"
+	@echo "... BitStream.s"
 	@echo "... wav_cmp.o"
 	@echo "... wav_cmp.i"
 	@echo "... wav_cmp.s"
