@@ -182,41 +182,78 @@ wav_cmp/fast:
 .PHONY : wav_cmp/fast
 
 #=============================================================================
-# Target rules for targets named BitStream
+# Target rules for targets named encoder
 
 # Build rule for target.
-BitStream: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BitStream
-.PHONY : BitStream
+encoder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encoder
+.PHONY : encoder
 
 # fast build rule for target.
-BitStream/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/build
-.PHONY : BitStream/fast
+encoder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/build
+.PHONY : encoder/fast
 
-BitStream.o: BitStream.cpp.o
-.PHONY : BitStream.o
+#=============================================================================
+# Target rules for targets named decoder
+
+# Build rule for target.
+decoder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 decoder
+.PHONY : decoder
+
+# fast build rule for target.
+decoder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/build
+.PHONY : decoder/fast
+
+decoder.o: decoder.cpp.o
+.PHONY : decoder.o
 
 # target to build an object file
-BitStream.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.o
-.PHONY : BitStream.cpp.o
+decoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.o
+.PHONY : decoder.cpp.o
 
-BitStream.i: BitStream.cpp.i
-.PHONY : BitStream.i
+decoder.i: decoder.cpp.i
+.PHONY : decoder.i
 
 # target to preprocess a source file
-BitStream.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.i
-.PHONY : BitStream.cpp.i
+decoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.i
+.PHONY : decoder.cpp.i
 
-BitStream.s: BitStream.cpp.s
-.PHONY : BitStream.s
+decoder.s: decoder.cpp.s
+.PHONY : decoder.s
 
 # target to generate assembly for a file
-BitStream.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitStream.dir/build.make CMakeFiles/BitStream.dir/BitStream.cpp.s
-.PHONY : BitStream.cpp.s
+decoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.s
+.PHONY : decoder.cpp.s
+
+encoder.o: encoder.cpp.o
+.PHONY : encoder.o
+
+# target to build an object file
+encoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.o
+.PHONY : encoder.cpp.o
+
+encoder.i: encoder.cpp.i
+.PHONY : encoder.i
+
+# target to preprocess a source file
+encoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.i
+.PHONY : encoder.cpp.i
+
+encoder.s: encoder.cpp.s
+.PHONY : encoder.s
+
+# target to generate assembly for a file
+encoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.s
+.PHONY : encoder.cpp.s
 
 wav_cmp.o: wav_cmp.cpp.o
 .PHONY : wav_cmp.o
@@ -346,15 +383,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... BitStream"
+	@echo "... decoder"
+	@echo "... encoder"
 	@echo "... wav_cmp"
 	@echo "... wav_cp"
 	@echo "... wav_dct"
 	@echo "... wav_hist"
 	@echo "... wav_quant"
-	@echo "... BitStream.o"
-	@echo "... BitStream.i"
-	@echo "... BitStream.s"
+	@echo "... decoder.o"
+	@echo "... decoder.i"
+	@echo "... decoder.s"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 	@echo "... wav_cmp.o"
 	@echo "... wav_cmp.i"
 	@echo "... wav_cmp.s"

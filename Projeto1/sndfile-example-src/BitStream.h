@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <stdlib.h>
-#include <map>
 
 using namespace std;
 
@@ -25,22 +25,23 @@ class BitStream {
 
     public:
         BitStream(std::string filename, std::string tipo){ 
-            if(tipo == 'w'){ // write, mode = 0
-                file = fstream(filename, ios::binary | ios::out);
+            name = filename;
+            mode = tipo;
+            if(tipo == "w"){ // write, mode = 0
+                file.open(name, ios::binary | ios::out);
                 pointerBit = 0;
-            }else if(tipo == 'r'){  // read, mode = 1
-                file = fstream(filename, std::ios::binary | std::ios::in);
+            }else if(tipo == "r"){  // read, mode = 1
+                file.open(name, std::ios::binary | std::ios::in);
                 pointerBit = 0;
-                file.seekg(0, ios::end);
-                size = file.tellg();
-                file.seekg(0, ios::beg);
-            }else{
-                throw runtime_error("Wrong file open mode");
+                size = getSize();
+            }else{ 
+                std::cout << "Incorrect mode for file" << std::endl;
+                //throw runtime_error("Wrong open mode file");
             }
         }
 
         int readBit(){ 
-            if(mode == 0) throw runtime_error("Cannot read in 'w' mode");
+            if(mode == "w") throw runtime_error("Cannot read in 'w' mode");
             if(pointerBit == 0){
                 char byte;
                 file.read((&byte), 1);
@@ -62,10 +63,10 @@ class BitStream {
                 if(pointerBit == 0){
                     char byte;
                     file.read(&byte, 1);
-                    bitArr = getbit(byte);
+                    bitArr = getBit(byte);
                 }
                 arrayNbits.push_back(bitArr[pointerBit]);
-                pointerBit == pointerBit + 1;
+                pointerBit++;
                 //caso o ponteiro seja igual a 8 significa que
                 //foi lido 1 byte, logo tenho de ler o próximo byte
                 if(pointerBit == 8){
@@ -85,33 +86,35 @@ class BitStream {
                 pointerBit = 0;//reset no ponteiro
             }
             //se o ponteiro é 0, entao é necessario 
-            //criar um array para guardar 1 byte
+            //inicializar o array, pois só foi referido O ARRAY E NAO INICIALIZADO
             if(pointerBit == 0){
-                std::vector<int> bitArr;
+                bitArr = std::vector<int>(8);
             }
             //Adicionar ao array o bit que se pretende escrever
             bitArr[pointerBit] = bit;
-            pointerBit = pointerBit + 1;
+            pointerBit++;
         }  
 
         void writeNbits(std::vector<int> array){    
             if(mode == "r") throw runtime_error("Cannot write in 'r' mode");
             
+            int size = array.size();
+
             //for para percorrer todos os bits
-            for(int i = 0; i < array.size(); i++){
+            for(int i = 0; i < size; i++){
                 if(pointerBit == 8){
                     char byte = getByte(bitArr);
                     file.write((&byte), 1);            
                     pointerBit = 0;//reset no ponteiro
                 }
                 //se o ponteiro é 0, entao é necessario 
-                //criar um array para guardar 1 byte
+                //inicializar o array, visto que só foi 
                 if(pointerBit == 0){
-                    std::vector<int> bitArr;
+                    bitArr = std::vector<int>(8);
                 }
                 //Adicionar ao array os bits que se pretende escrever no ficheiro
                 bitArr[pointerBit] = array[i];
-                pointerBit = pointerBit + 1;
+                pointerBit++;
             }  
         }
 
@@ -139,8 +142,21 @@ class BitStream {
             return byte;
         }
 
+        int getSize() {
+            int size;
+            file.seekg(0, std::ios::end);
+            size=file.tellg();
+            file.seekg(0, std::ios::beg);
+            return size;
+        }
 
 
+        // Escreve o que resta no aray no ficheiro
+        void close(){
+            char byte = getByte(bitArr);
+            file.write(&byte, 1);
+            file.close();
+        }
 };
 
 #endif

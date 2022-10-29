@@ -26,5 +26,8 @@ target_link_libraries(wav_quant sndfile)
 add_executable (wav_cmp wav_cmp.cpp)
 target_link_libraries(wav_cmp sndfile)
 
-add_executable (BitStream BitStream.cpp)
-target_link_libraries(BitStream)
+add_executable(encoder encoder.cpp)
+target_link_libraries (encoder sndfile)
+
+add_executable(decoder decoder.cpp)
+target_link_libraries (decoder sndfile)

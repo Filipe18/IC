@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/BitStream.cpp" "CMakeFiles/BitStream.dir/BitStream.cpp.o" "gcc" "CMakeFiles/BitStream.dir/BitStream.cpp.o.d"
+  "/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/decoder.cpp" "CMakeFiles/decoder.dir/decoder.cpp.o" "gcc" "CMakeFiles/decoder.dir/decoder.cpp.o.d"
   )
 
 # Targets to which this target links.
