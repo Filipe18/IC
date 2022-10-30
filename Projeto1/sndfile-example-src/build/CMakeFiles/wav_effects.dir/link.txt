@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/wav_effects.dir/wav_effects.cpp.o -o /home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-bin/wav_effects  -lsndfile 
+/usr/bin/c++   -Wall -Wextra -std=c++17 -O3   CMakeFiles/wav_effects.dir/wav_effects.cpp.o  -o /home/filipe/Desktop/IC/Projeto1/sndfile-example-bin/wav_effects  -lsndfile 

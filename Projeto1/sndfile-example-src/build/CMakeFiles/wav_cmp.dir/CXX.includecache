@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipe/Desktop/IC/Projeto1/sndfile-example-src/wav_cmp.cpp
+iostream
+-
+vector
+-
+sndfile.hh
+-
+cmath
+-
+

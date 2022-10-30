@@ -1,14 +1,15 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/filipe/Desktop/IC/Projeto1/sndfile-example-src/wav_quant.cpp" "/home/filipe/Desktop/IC/Projeto1/sndfile-example-src/build/CMakeFiles/wav_quant.dir/wav_quant.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-src/wav_quant.cpp" "CMakeFiles/wav_quant.dir/wav_quant.cpp.o" "gcc" "CMakeFiles/wav_quant.dir/wav_quant.cpp.o.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.
