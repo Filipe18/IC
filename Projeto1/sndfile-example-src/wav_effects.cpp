@@ -9,9 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     
-    string effect;
-    int delay;
-    double eco_attenuation;
+    
     size_t nFrames;
     
     constexpr size_t FRAMES_BUFFER_SIZE = 65536; // Buffer for reading frames
@@ -48,14 +46,14 @@ int main(int argc, char *argv[]) {
 
 
     //efeito, delay, eco_attenuation
-    delay = atoi(argv[argc-2]);   //valor entre 1 e 44100(acho)
-    eco_attenuation = atoi(argv[argc-1]);    //valor entre 0 e 1
+    int delay = atoi(argv[argc-2]);   //valor entre 1 e 44100(acho)
+    double eco_attenuation = atoi(argv[argc-1]);    //valor entre 0 e 1
     
+    string effect(argv[argc-3]);
 
-    //strcpy(effect, argv[argc-2]);
-    effect = argv[argc-3];
+    
     cout << effect;
-    if(effect.compare("simple_echo") != 0 || effect.compare("multiple_echo") != 0){
+    if(effect.compare("simple_echo") != 0 && effect.compare("multiple_echo") != 0){
         cerr << "Error: Effect must be a string equal to simple_echo or multiple_echo\n";
 		return 1;
     }
