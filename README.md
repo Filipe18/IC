@@ -28,6 +28,13 @@ Pode averiguar os dados obtidos ouvindo o ficheiro de audio gerado.
 
 ### Exercício 5
 
+    ../sndfile-example-bin/wav_cmp <audio_file> <wanted_effect> <delay> <eco_attenuation>
+    
+    Existem dois tipos de efeitos, simples eco e múltiplos ecos
+    Para simples ecos:
+        ../sndfile-example-bin/wav_cmp ./Audio\ files\ -\ WAV\ format-20221010/sample01.wav simple_eco 5000 0.5
+    Para múltiplos ecos:
+        ../sndfile-example-bin/wav_cmp ./Audio\ files\ -\ WAV\ format-20221010/sample01.wav multiple_eco 5000 0.5
 <br>
 
 ### Exercício 7
