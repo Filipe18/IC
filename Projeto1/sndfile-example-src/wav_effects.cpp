@@ -52,7 +52,6 @@ int main(int argc, char *argv[]) {
     string effect(argv[argc-3]);
 
     
-    cout << effect;
     if(effect.compare("simple_echo") != 0 && effect.compare("multiple_echo") != 0){
         cerr << "Error: Effect must be a string equal to simple_echo or multiple_echo\n";
 		return 1;
@@ -64,24 +63,30 @@ int main(int argc, char *argv[]) {
 		return 1;
     }
 
+
        
     
 
     vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
     vector<short> samples_out(FRAMES_BUFFER_SIZE * sfhIn.channels());
+    double num_samples = sfhIn.samplerate() * sfhIn.channels();
+    cout << num_samples;
     
     while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {
         samples.resize(nFrames * sfhIn.channels());
         
-        for (int i = 0; i< int(samples.size()); i++){
+        for (int i = 0; i< num_samples; i++){
             if( i >= delay){
+                
                 if (effect == "simple_echo")
                 {
-                    samples_out.push_back(samples[i] + eco_attenuation*samples[i - delay]); // para ecos simples
+                   
+                    samples_out.push_back((samples[i] + eco_attenuation*samples[i - delay])/(1 + eco_attenuation)); // para ecos simples
                 }
 
                 else{
-                    samples_out.push_back(samples[i] + eco_attenuation*samples_out[i - delay]); // multiplos ecos
+                    
+                    samples_out.push_back((samples[i] + eco_attenuation*samples_out[i - delay])/(1 + eco_attenuation)); // multiplos ecos
                 }
                 
             }
