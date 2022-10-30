@@ -1,4 +1,6 @@
-# IC: Projeto 1
+    
+<h1 align="center">IC: Projeto 1</h1> 
+
 ## Compilar: 
 Ir a `proj1/sndfile-example-src` e fazer make
 
