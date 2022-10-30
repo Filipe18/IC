@@ -49,8 +49,9 @@ class BitStream {
             }
 
             int bit = bitArr[pointerBit];
-            pointerBit++;
-            pointerBit = (pointerBit%8);
+            //pointerBit++;
+            //pointerBit = (pointerBit%8);
+            pointerBit = (pointerBit + 1) % 8;
             
             return bit;
         }

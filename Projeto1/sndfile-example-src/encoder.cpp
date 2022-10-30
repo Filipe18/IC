@@ -34,13 +34,12 @@ int main(int argc, char *argv[]) {
     //cout << "\ndebugging1\n";
 
     std::vector<int> bitArr;
-    unsigned int i = 0;
 
     // '0' e '1' -> 0, 1
-    while(i < aux.length()){
+    for(int i = 0; (unsigned)i < aux.length(); i++){
         bitArr.push_back(aux[i] & 1);
-        i++;
     }
+
     
     //Escrever os bits anteriormente guardados no array para o outputF
     outputF.writeNbits(bitArr);

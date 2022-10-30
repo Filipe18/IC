@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/filipe/Desktop/IC/Projeto1/sndfile-example-bin/wav_cp"
-  "/home/filipe/Desktop/IC/Projeto1/sndfile-example-bin/wav_cp.pdb"
+  "/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-bin/wav_cp"
+  "/home/antunes/Desktop/4ano/IC/Projeto1/sndfile-example-bin/wav_cp.pdb"
   "CMakeFiles/wav_cp.dir/wav_cp.cpp.o"
+  "CMakeFiles/wav_cp.dir/wav_cp.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

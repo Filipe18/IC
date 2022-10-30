@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
 
         for(int i=0;i<num_samples; i++){
             Ex += pow(OriginalFile_samples[i],2);
-			Er += pow(CompressedFile_samples[i],2);
+			Er += pow(CompressedFile_samples[i] -OriginalFile_samples[i],2);
 			temp_error = abs(OriginalFile_samples[i] - CompressedFile_samples[i]);
             if(temp_error > absolute_error)
                 absolute_error = temp_error;
