@@ -1,25 +1,22 @@
 # IC: Projeto 1
-## Para compilar: 
+## Compilar: 
 Ir a `proj1/sndfile-example-src` e fazer make
-
-## Para testar: 
-Ir a `proj1/sndfile-example-bin`
 
 <br>
 
-### Exercise 2
+### Exercício 2
 
 <br>
 
 ### Exercício 3
 
-**To reduce 4 bits:**
+**Para reduzir 4 bits:**
 
     ../sndfile-example-bin/wav_quant ./Audio\ files\ -\ WAV\ format-20221010/sample01.wav 4 output.wav
-Para averiguar os dados obtidos, ouça o ficheiro de audio e use `wav_hist` para analisar a quantização
-
-
+Pode averiguar os dados obtidos ouvindo o ficheiro de audio gerado.
 <br>
+
+
 
 ### Exercício 4
 
@@ -38,10 +35,8 @@ Para averiguar os dados obtidos, ouça o ficheiro de audio e use `wav_hist` para
 * **Decode:**
 
     ../sndfile-example-bin/decoder ./encoderout.txt ./decoderout.txt
-    
+   <br>
 
 ### Exercício 8
-
-
 
 
