@@ -7,6 +7,9 @@ Ir a `proj1/sndfile-example-src` e fazer make
 <br>
 
 ### Exercício 2
+    
+    ../sndfile-example-bin/wav_quant <imput_file> <channel>
+    Para averiguar os dados obtidos, utilize os ficheiros MID_Channel.txt e SIDE_Channel.txt
 
 <br>
 
