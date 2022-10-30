@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    //Objeto para fazer a leitura de bits do ficheiro passado como argumento
+    //input -> Objeto para fazer a leitura do ficheiro
     BitStream input(argv[1], "r");
     
     //Escrita dos bits que foram lidos
@@ -28,14 +28,16 @@ int main(int argc, char *argv[]) {
     }
     
     //read the bits from the input file
-    vector<int> bitArr;
-    bitArr = input.readNbits(input.getSize()*8);
+    vector<int> bitArr = input.readNbits(input.getSize()*8);
     input.close();
 
     //write the bits to the output file
-    for (int i = 0; (unsigned)i < bitArr.size(); i++){
+    unsigned int i = 0;
+    while(i < bitArr.size()){
         output << bitArr[i];
+        i++;
     }
+
     output.close();
     
     return 0;

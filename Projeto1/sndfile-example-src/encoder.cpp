@@ -14,9 +14,10 @@ int main(int argc, char *argv[]) {
 		cerr << "Usage: " << argv[0] << " <input file> <output file>\n";
 		return 1;
 	}
-
+    
     ifstream input (argv[1], ios::in);
-    string output = argv[2];
+    //outputF -> objecto BitStream para escrita no ficheiro
+    BitStream outputF(argv[2], "w"); 
 
     //-> true if the ifstream has no errors, false otherwise.
     if(!input){
@@ -31,17 +32,14 @@ int main(int argc, char *argv[]) {
     input.close();
 
     //cout << "\ndebugging1\n";
-    //outputF -> objecto BitStream para escrita no ficheiro contido na variavel output
-    BitStream outputF(output, "w");
-    
-    //cout << "debugging2";
 
-    
     std::vector<int> bitArr;
-   
+    unsigned int i = 0;
+
     // '0' e '1' -> 0, 1
-    for(int i = 0; (unsigned)i < aux.length(); i++){ 
+    while(i < aux.length()){
         bitArr.push_back(aux[i] & 1);
+        i++;
     }
     
     //Escrever os bits anteriormente guardados no array para o outputF
@@ -49,4 +47,4 @@ int main(int argc, char *argv[]) {
     outputF.close();
 
     return 0;
-} ; 
+}; 

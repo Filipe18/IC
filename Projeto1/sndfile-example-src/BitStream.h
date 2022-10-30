@@ -11,32 +11,32 @@ using namespace std;
 
 class BitStream {
     private:
-    //nome do ficheiro
+    //Nome do ficheiro
     std::string name;
+    //class Stream para ler e escrever de/para ficheiros
     std::fstream file;
-    //tamanho do ficheiro
+    //Tamanho do ficheiro
     int size;
-    //tipo de ficheiro -> escrita ou leitura       
+    //Tipo de ficheiro -> escrita ou leitura       
     std::string mode;  
-    //Array de bits
+    //Array de bits / BUFFER
     std::vector<int> bitArr; 
-    //variavel que contem a posicao do bit atual no array de bits
+    //variavel para saber a posição livre no array de bits
     int pointerBit;
 
     public:
-        BitStream(std::string filename, std::string tipo){ 
-            name = filename;
+        BitStream(std::string name, std::string tipo){ 
+            name = name;
             mode = tipo;
-            if(tipo == "w"){ // write, mode = 0
+            if(tipo == "w"){
                 file.open(name, ios::binary | ios::out);
                 pointerBit = 0;
-            }else if(tipo == "r"){  // read, mode = 1
+            }else if(tipo == "r"){
                 file.open(name, std::ios::binary | std::ios::in);
                 pointerBit = 0;
                 size = getSize();
             }else{ 
-                std::cout << "Incorrect mode for file" << std::endl;
-                //throw runtime_error("Wrong open mode file");
+                throw runtime_error("Wrong open mode file");
             }
         }
 
@@ -49,10 +49,31 @@ class BitStream {
             }
 
             int bit = bitArr[pointerBit];
-            pointerBit = (pointerBit + 1) % 8;
+            pointerBit++;
+            pointerBit = (pointerBit%8);
             
             return bit;
         }
+
+        void writeBit(int bit){
+            if(mode == "r") throw runtime_error("Cannot write in 'r' mode");    
+            //ver se temos 1 byte no buffer
+            //caso sim, escrever no ficheiro e dar reset
+            if(pointerBit == 8){
+                char byte = getByte(bitArr);
+                file.write((&byte), 1);            
+                pointerBit = 0;//reset no ponteiro
+            }
+            //se o ponteiro = 0, então é necessario 
+            //inicializar um novo array
+            if(pointerBit == 0){
+                bitArr = std::vector<int>(8);
+            }
+            //Adicionar ao array o bit que se pretende escrever
+            bitArr[pointerBit] = bit;
+            pointerBit++;
+        }  
+
 
         std::vector<int> readNbits(int n){
             if(mode == "w") throw runtime_error("Cannot read in 'w' mode");
@@ -76,24 +97,6 @@ class BitStream {
             return arrayNbits;
         }
 
-         void writeBit(int bit){
-            if(mode == "r") throw runtime_error("Cannot write in 'r' mode");    
-            //ver se temos 1 byte
-            //caso sim, escrever no ficheiro
-            if(pointerBit == 8){
-                char byte = getByte(bitArr);
-                file.write((&byte), 1);            
-                pointerBit = 0;//reset no ponteiro
-            }
-            //se o ponteiro é 0, entao é necessario 
-            //inicializar o array, pois só foi referido O ARRAY E NAO INICIALIZADO
-            if(pointerBit == 0){
-                bitArr = std::vector<int>(8);
-            }
-            //Adicionar ao array o bit que se pretende escrever
-            bitArr[pointerBit] = bit;
-            pointerBit++;
-        }  
 
         void writeNbits(std::vector<int> array){    
             if(mode == "r") throw runtime_error("Cannot write in 'r' mode");
@@ -108,7 +111,7 @@ class BitStream {
                     pointerBit = 0;//reset no ponteiro
                 }
                 //se o ponteiro é 0, entao é necessario 
-                //inicializar o array, visto que só foi 
+                //inicializar um novo array
                 if(pointerBit == 0){
                     bitArr = std::vector<int>(8);
                 }
@@ -151,11 +154,13 @@ class BitStream {
         }
 
 
-        // Escreve o que resta no aray no ficheiro
+        // Escreve o que resta no buffer
         void close(){
-            char byte = getByte(bitArr);
-            file.write(&byte, 1);
-            file.close();
+            if(mode == "w"){
+                char byte = getByte(bitArr);
+                file.write(&byte, 1);
+                file.close();
+            }
         }
 };
 
