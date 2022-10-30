@@ -31,3 +31,6 @@ target_link_libraries (encoder sndfile)
 
 add_executable(decoder decoder.cpp)
 target_link_libraries (decoder sndfile)
+
+add_executable(wav_effects wav_effects.cpp)
+target_link_libraries (wav_effects sndfile)
