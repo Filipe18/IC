@@ -1,0 +1,3 @@
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/cp_image.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/edit_cache.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/rebuild_cache.dir
