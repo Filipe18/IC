@@ -1,3 +1,6 @@
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/cp_image.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex1.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2a.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2b.dir
+/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2c.dir
 /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/edit_cache.dir
 /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/rebuild_cache.dir

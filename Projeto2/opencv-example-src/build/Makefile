@@ -117,41 +117,152 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cp_image
+# Target rules for targets named ex1
 
 # Build rule for target.
-cp_image: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cp_image
-.PHONY : cp_image
+ex1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex1
+.PHONY : ex1
 
 # fast build rule for target.
-cp_image/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cp_image.dir/build.make CMakeFiles/cp_image.dir/build
-.PHONY : cp_image/fast
+ex1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex1.dir/build.make CMakeFiles/ex1.dir/build
+.PHONY : ex1/fast
 
-cp_image.o: cp_image.cpp.o
-.PHONY : cp_image.o
+#=============================================================================
+# Target rules for targets named ex2a
+
+# Build rule for target.
+ex2a: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex2a
+.PHONY : ex2a
+
+# fast build rule for target.
+ex2a/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2a.dir/build.make CMakeFiles/ex2a.dir/build
+.PHONY : ex2a/fast
+
+#=============================================================================
+# Target rules for targets named ex2b
+
+# Build rule for target.
+ex2b: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex2b
+.PHONY : ex2b
+
+# fast build rule for target.
+ex2b/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2b.dir/build.make CMakeFiles/ex2b.dir/build
+.PHONY : ex2b/fast
+
+#=============================================================================
+# Target rules for targets named ex2c
+
+# Build rule for target.
+ex2c: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex2c
+.PHONY : ex2c
+
+# fast build rule for target.
+ex2c/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/build
+.PHONY : ex2c/fast
+
+ex1.o: ex1.cpp.o
+.PHONY : ex1.o
 
 # target to build an object file
-cp_image.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cp_image.dir/build.make CMakeFiles/cp_image.dir/cp_image.cpp.o
-.PHONY : cp_image.cpp.o
+ex1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex1.dir/build.make CMakeFiles/ex1.dir/ex1.cpp.o
+.PHONY : ex1.cpp.o
 
-cp_image.i: cp_image.cpp.i
-.PHONY : cp_image.i
+ex1.i: ex1.cpp.i
+.PHONY : ex1.i
 
 # target to preprocess a source file
-cp_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cp_image.dir/build.make CMakeFiles/cp_image.dir/cp_image.cpp.i
-.PHONY : cp_image.cpp.i
+ex1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex1.dir/build.make CMakeFiles/ex1.dir/ex1.cpp.i
+.PHONY : ex1.cpp.i
 
-cp_image.s: cp_image.cpp.s
-.PHONY : cp_image.s
+ex1.s: ex1.cpp.s
+.PHONY : ex1.s
 
 # target to generate assembly for a file
-cp_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cp_image.dir/build.make CMakeFiles/cp_image.dir/cp_image.cpp.s
-.PHONY : cp_image.cpp.s
+ex1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex1.dir/build.make CMakeFiles/ex1.dir/ex1.cpp.s
+.PHONY : ex1.cpp.s
+
+ex2a.o: ex2a.cpp.o
+.PHONY : ex2a.o
+
+# target to build an object file
+ex2a.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2a.dir/build.make CMakeFiles/ex2a.dir/ex2a.cpp.o
+.PHONY : ex2a.cpp.o
+
+ex2a.i: ex2a.cpp.i
+.PHONY : ex2a.i
+
+# target to preprocess a source file
+ex2a.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2a.dir/build.make CMakeFiles/ex2a.dir/ex2a.cpp.i
+.PHONY : ex2a.cpp.i
+
+ex2a.s: ex2a.cpp.s
+.PHONY : ex2a.s
+
+# target to generate assembly for a file
+ex2a.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2a.dir/build.make CMakeFiles/ex2a.dir/ex2a.cpp.s
+.PHONY : ex2a.cpp.s
+
+ex2b.o: ex2b.cpp.o
+.PHONY : ex2b.o
+
+# target to build an object file
+ex2b.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2b.dir/build.make CMakeFiles/ex2b.dir/ex2b.cpp.o
+.PHONY : ex2b.cpp.o
+
+ex2b.i: ex2b.cpp.i
+.PHONY : ex2b.i
+
+# target to preprocess a source file
+ex2b.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2b.dir/build.make CMakeFiles/ex2b.dir/ex2b.cpp.i
+.PHONY : ex2b.cpp.i
+
+ex2b.s: ex2b.cpp.s
+.PHONY : ex2b.s
+
+# target to generate assembly for a file
+ex2b.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2b.dir/build.make CMakeFiles/ex2b.dir/ex2b.cpp.s
+.PHONY : ex2b.cpp.s
+
+ex2c.o: ex2c.cpp.o
+.PHONY : ex2c.o
+
+# target to build an object file
+ex2c.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/ex2c.cpp.o
+.PHONY : ex2c.cpp.o
+
+ex2c.i: ex2c.cpp.i
+.PHONY : ex2c.i
+
+# target to preprocess a source file
+ex2c.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/ex2c.cpp.i
+.PHONY : ex2c.cpp.i
+
+ex2c.s: ex2c.cpp.s
+.PHONY : ex2c.s
+
+# target to generate assembly for a file
+ex2c.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/ex2c.cpp.s
+.PHONY : ex2c.cpp.s
 
 # Help Target
 help:
@@ -161,10 +272,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... cp_image"
-	@echo "... cp_image.o"
-	@echo "... cp_image.i"
-	@echo "... cp_image.s"
+	@echo "... ex1"
+	@echo "... ex2a"
+	@echo "... ex2b"
+	@echo "... ex2c"
+	@echo "... ex1.o"
+	@echo "... ex1.i"
+	@echo "... ex1.s"
+	@echo "... ex2a.o"
+	@echo "... ex2a.i"
+	@echo "... ex2a.s"
+	@echo "... ex2b.o"
+	@echo "... ex2b.i"
+	@echo "... ex2b.s"
+	@echo "... ex2c.o"
+	@echo "... ex2c.i"
+	@echo "... ex2c.s"
 .PHONY : help
 
 
