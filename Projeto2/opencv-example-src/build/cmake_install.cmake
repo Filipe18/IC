@@ -1,4 +1,4 @@
-# Install script for directory: /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src
+# Install script for directory: /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

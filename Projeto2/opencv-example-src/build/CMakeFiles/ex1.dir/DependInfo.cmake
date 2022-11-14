@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/ex1.cpp" "CMakeFiles/ex1.dir/ex1.cpp.o" "gcc" "CMakeFiles/ex1.dir/ex1.cpp.o.d"
+  "/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/ex1.cpp" "CMakeFiles/ex1.dir/ex1.cpp.o" "gcc" "CMakeFiles/ex1.dir/ex1.cpp.o.d"
   )
 
 # Targets to which this target links.

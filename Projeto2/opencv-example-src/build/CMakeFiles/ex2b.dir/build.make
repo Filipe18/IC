@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src
+CMAKE_SOURCE_DIR = /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build
+CMAKE_BINARY_DIR = /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ex2b.dir/depend.make
@@ -72,16 +72,16 @@ include CMakeFiles/ex2b.dir/flags.make
 CMakeFiles/ex2b.dir/ex2b.cpp.o: CMakeFiles/ex2b.dir/flags.make
 CMakeFiles/ex2b.dir/ex2b.cpp.o: ../ex2b.cpp
 CMakeFiles/ex2b.dir/ex2b.cpp.o: CMakeFiles/ex2b.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ex2b.dir/ex2b.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ex2b.dir/ex2b.cpp.o -MF CMakeFiles/ex2b.dir/ex2b.cpp.o.d -o CMakeFiles/ex2b.dir/ex2b.cpp.o -c /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/ex2b.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ex2b.dir/ex2b.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ex2b.dir/ex2b.cpp.o -MF CMakeFiles/ex2b.dir/ex2b.cpp.o.d -o CMakeFiles/ex2b.dir/ex2b.cpp.o -c /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/ex2b.cpp
 
 CMakeFiles/ex2b.dir/ex2b.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex2b.dir/ex2b.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/ex2b.cpp > CMakeFiles/ex2b.dir/ex2b.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/ex2b.cpp > CMakeFiles/ex2b.dir/ex2b.cpp.i
 
 CMakeFiles/ex2b.dir/ex2b.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex2b.dir/ex2b.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/ex2b.cpp -o CMakeFiles/ex2b.dir/ex2b.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/ex2b.cpp -o CMakeFiles/ex2b.dir/ex2b.cpp.s
 
 # Object files for target ex2b
 ex2b_OBJECTS = \
@@ -90,29 +90,29 @@ ex2b_OBJECTS = \
 # External object files for target ex2b
 ex2b_EXTERNAL_OBJECTS =
 
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/ex2b.cpp.o
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/build.make
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_gapi.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_highgui.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_ml.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_objdetect.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_photo.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_stitching.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_video.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_videoio.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_imgcodecs.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_dnn.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_calib3d.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_features2d.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_flann.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_imgproc.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_core.so.4.6.0
-/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b"
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/ex2b.cpp.o
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/build.make
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_gapi.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_highgui.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_ml.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_objdetect.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_photo.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_stitching.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_video.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_videoio.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_imgcodecs.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_dnn.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_calib3d.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_features2d.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_flann.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_imgproc.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: /usr/local/lib/libopencv_core.so.4.6.0
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b: CMakeFiles/ex2b.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex2b.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ex2b.dir/build: /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2b
+CMakeFiles/ex2b.dir/build: /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2b
 .PHONY : CMakeFiles/ex2b.dir/build
 
 CMakeFiles/ex2b.dir/clean:
@@ -120,6 +120,6 @@ CMakeFiles/ex2b.dir/clean:
 .PHONY : CMakeFiles/ex2b.dir/clean
 
 CMakeFiles/ex2b.dir/depend:
-	cd /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2b.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2b.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ex2b.dir/depend
 

@@ -53,4 +53,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ex2a.dir/DependInfo.cmake"
   "CMakeFiles/ex2b.dir/DependInfo.cmake"
   "CMakeFiles/ex2c.dir/DependInfo.cmake"
+  "CMakeFiles/ex2d.dir/DependInfo.cmake"
+  "CMakeFiles/testGolomb.dir/DependInfo.cmake"
   )

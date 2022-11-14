@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2a"
-  "/home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-bin/ex2a.pdb"
+  "/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2a"
+  "/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/ex2a.pdb"
   "CMakeFiles/ex2a.dir/ex2a.cpp.o"
   "CMakeFiles/ex2a.dir/ex2a.cpp.o.d"
 )

@@ -28,3 +28,6 @@ target_link_libraries(ex2c ${OpenCV_LIBS})
 
 add_executable (ex2d ex2d.cpp)
 target_link_libraries(ex2d ${OpenCV_LIBS})
+
+add_executable (testGolomb testGolomb.cpp)
+target_link_libraries(testGolomb ${OpenCV_LIBS})

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src
+CMAKE_SOURCE_DIR = /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build
+CMAKE_BINARY_DIR = /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antunes/Desktop/4ano/IC/Projeto2/opencv-example-src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -167,6 +167,32 @@ ex2c: cmake_check_build_system
 ex2c/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/build
 .PHONY : ex2c/fast
+
+#=============================================================================
+# Target rules for targets named ex2d
+
+# Build rule for target.
+ex2d: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex2d
+.PHONY : ex2d
+
+# fast build rule for target.
+ex2d/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2d.dir/build.make CMakeFiles/ex2d.dir/build
+.PHONY : ex2d/fast
+
+#=============================================================================
+# Target rules for targets named testGolomb
+
+# Build rule for target.
+testGolomb: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testGolomb
+.PHONY : testGolomb
+
+# fast build rule for target.
+testGolomb/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/build
+.PHONY : testGolomb/fast
 
 ex1.o: ex1.cpp.o
 .PHONY : ex1.o
@@ -264,6 +290,54 @@ ex2c.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2c.dir/build.make CMakeFiles/ex2c.dir/ex2c.cpp.s
 .PHONY : ex2c.cpp.s
 
+ex2d.o: ex2d.cpp.o
+.PHONY : ex2d.o
+
+# target to build an object file
+ex2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2d.dir/build.make CMakeFiles/ex2d.dir/ex2d.cpp.o
+.PHONY : ex2d.cpp.o
+
+ex2d.i: ex2d.cpp.i
+.PHONY : ex2d.i
+
+# target to preprocess a source file
+ex2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2d.dir/build.make CMakeFiles/ex2d.dir/ex2d.cpp.i
+.PHONY : ex2d.cpp.i
+
+ex2d.s: ex2d.cpp.s
+.PHONY : ex2d.s
+
+# target to generate assembly for a file
+ex2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2d.dir/build.make CMakeFiles/ex2d.dir/ex2d.cpp.s
+.PHONY : ex2d.cpp.s
+
+testGolomb.o: testGolomb.cpp.o
+.PHONY : testGolomb.o
+
+# target to build an object file
+testGolomb.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.o
+.PHONY : testGolomb.cpp.o
+
+testGolomb.i: testGolomb.cpp.i
+.PHONY : testGolomb.i
+
+# target to preprocess a source file
+testGolomb.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.i
+.PHONY : testGolomb.cpp.i
+
+testGolomb.s: testGolomb.cpp.s
+.PHONY : testGolomb.s
+
+# target to generate assembly for a file
+testGolomb.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.s
+.PHONY : testGolomb.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -276,6 +350,8 @@ help:
 	@echo "... ex2a"
 	@echo "... ex2b"
 	@echo "... ex2c"
+	@echo "... ex2d"
+	@echo "... testGolomb"
 	@echo "... ex1.o"
 	@echo "... ex1.i"
 	@echo "... ex1.s"
@@ -288,6 +364,12 @@ help:
 	@echo "... ex2c.o"
 	@echo "... ex2c.i"
 	@echo "... ex2c.s"
+	@echo "... ex2d.o"
+	@echo "... ex2d.i"
+	@echo "... ex2d.s"
+	@echo "... testGolomb.o"
+	@echo "... testGolomb.i"
+	@echo "... testGolomb.s"
 .PHONY : help
 
 
