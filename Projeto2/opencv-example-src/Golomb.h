@@ -15,6 +15,16 @@ class Golomb {
             
             int q, r;
             string bit_string, aux, temp; 
+
+            // swith signed integers we need to perform some changes:
+            // When number is greater than or equal to zero, the number is mapped to the m-th even number (number*2)
+            if ( number >= 0){
+                number *= 2;
+            }
+            // When the number is less than zero(negative), the number is is mapped to the nth odd number (-2*number - 1 )
+            else{
+                number = -(number*2) - 1;
+            }
             q = floor(number/m);
             r = number - q*m;
 
@@ -24,7 +34,7 @@ class Golomb {
             bit_string += '0';
             int b = floor(log2(m));
             // check if m is a power of 2
-            if ((log2(m) - b) == 0) {
+            if ((log2(m) - b) != 0) {
                 int n_bits;
 
                 if (r < pow(2, b+1) - m){
@@ -72,7 +82,13 @@ class Golomb {
                 r = stoi(bit_string.substr(sep+1,b+1), 0, 2); // // interpret next b+1 bits as a binary number r'
                 r = r - pow(2, b+1) + m;
             }
-            return q*m + r;
+            int number = q*m + r;
+            if( number % 2 == 0){
+                return number/2;
+            }
+            else{
+                return (-number - 1)/2;
+            }
         }
 
 };
