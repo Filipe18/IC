@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named golomb
+
+# Build rule for target.
+golomb: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 golomb
+.PHONY : golomb
+
+# fast build rule for target.
+golomb/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/build
+.PHONY : golomb/fast
+
+#=============================================================================
 # Target rules for targets named ex1
 
 # Build rule for target.
@@ -193,6 +206,30 @@ testGolomb: cmake_check_build_system
 testGolomb/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/build
 .PHONY : testGolomb/fast
+
+Golomb.o: Golomb.cpp.o
+.PHONY : Golomb.o
+
+# target to build an object file
+Golomb.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.o
+.PHONY : Golomb.cpp.o
+
+Golomb.i: Golomb.cpp.i
+.PHONY : Golomb.i
+
+# target to preprocess a source file
+Golomb.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.i
+.PHONY : Golomb.cpp.i
+
+Golomb.s: Golomb.cpp.s
+.PHONY : Golomb.s
+
+# target to generate assembly for a file
+Golomb.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.s
+.PHONY : Golomb.cpp.s
 
 ex1.o: ex1.cpp.o
 .PHONY : ex1.o
@@ -351,7 +388,11 @@ help:
 	@echo "... ex2b"
 	@echo "... ex2c"
 	@echo "... ex2d"
+	@echo "... golomb"
 	@echo "... testGolomb"
+	@echo "... Golomb.o"
+	@echo "... Golomb.i"
+	@echo "... Golomb.s"
 	@echo "... ex1.o"
 	@echo "... ex1.i"
 	@echo "... ex1.s"

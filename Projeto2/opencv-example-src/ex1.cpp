@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     //Command line arguments processing
     if(argc < 3){
-        cerr << "Usage: " << argv[0] << " <input file> <output file>\n" ;
+        cerr << "Usage: " << argv[0] << " <input_file>< <output_file>\n" ;
         return 1;
     }
     char *inputfile = argv[1];
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     //Acessing image pixels and copy them to the new image
     for(int i=0; i < image.rows; i++){
         for(int j=0 ; j < image.cols; j++)
-            output.ptr<Vec3b>(i)[j] = Vec3b(image.ptr<Vec3b>(i)[j][0], image.ptr<Vec3b>(i)[j][0], image.ptr<Vec3b>(i)[j][2]);
+            output.ptr<Vec3b>(i)[j] = Vec3b(image.ptr<Vec3b>(i)[j][0], image.ptr<Vec3b>(i)[j][1], image.ptr<Vec3b>(i)[j][2]);
     }
 
     //Save output image

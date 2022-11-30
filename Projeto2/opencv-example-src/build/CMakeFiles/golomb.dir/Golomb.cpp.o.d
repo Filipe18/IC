@@ -1,7 +1,6 @@
-CMakeFiles/testGolomb.dir/testGolomb.cpp.o: \
- /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/testGolomb.cpp \
- /usr/include/stdc-predef.h \
+CMakeFiles/golomb.dir/Golomb.cpp.o: \
  /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/Golomb.cpp \
+ /usr/include/stdc-predef.h \
  /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/BitStream.h \
  /usr/include/c++/10/iostream \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \

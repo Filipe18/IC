@@ -13,9 +13,10 @@ SET (CMAKE_CXX_FLAGS_DEBUG "-g3 -fsanitize=address")
 SET (BASE_DIR ${CMAKE_SOURCE_DIR} )
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BASE_DIR}/../opencv-example-bin)
 
+add_library(golomb Golomb.cpp)
+
 add_executable (ex1 ex1.cpp)
 target_link_libraries(ex1 ${OpenCV_LIBS})
-
 
 add_executable (ex2a ex2a.cpp)
 target_link_libraries(ex2a ${OpenCV_LIBS})

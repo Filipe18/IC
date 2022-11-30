@@ -63,6 +63,7 @@ CMAKE_BINARY_DIR = /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/golomb.dir/all
 all: CMakeFiles/ex1.dir/all
 all: CMakeFiles/ex2a.dir/all
 all: CMakeFiles/ex2b.dir/all
@@ -76,6 +77,7 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/golomb.dir/clean
 clean: CMakeFiles/ex1.dir/clean
 clean: CMakeFiles/ex2a.dir/clean
 clean: CMakeFiles/ex2b.dir/clean
@@ -83,6 +85,32 @@ clean: CMakeFiles/ex2c.dir/clean
 clean: CMakeFiles/ex2d.dir/clean
 clean: CMakeFiles/testGolomb.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/golomb.dir
+
+# All Build rule for target.
+CMakeFiles/golomb.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=11,12 "Built target golomb"
+.PHONY : CMakeFiles/golomb.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/golomb.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/golomb.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles 0
+.PHONY : CMakeFiles/golomb.dir/rule
+
+# Convenience name for target.
+golomb: CMakeFiles/golomb.dir/rule
+.PHONY : golomb
+
+# clean rule for target.
+CMakeFiles/golomb.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/clean
+.PHONY : CMakeFiles/golomb.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ex1.dir
@@ -221,7 +249,7 @@ CMakeFiles/ex2d.dir/clean:
 CMakeFiles/testGolomb.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=11,12 "Built target testGolomb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles --progress-num=13,14 "Built target testGolomb"
 .PHONY : CMakeFiles/testGolomb.dir/all
 
 # Build rule for subdir invocation for target.
