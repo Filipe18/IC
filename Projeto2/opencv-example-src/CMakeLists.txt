@@ -18,17 +18,9 @@ add_library(golomb Golomb.cpp)
 add_executable (ex1 ex1.cpp)
 target_link_libraries(ex1 ${OpenCV_LIBS})
 
-add_executable (ex2a ex2a.cpp)
-target_link_libraries(ex2a ${OpenCV_LIBS})
+add_executable (ex2 ex2.cpp)
+target_link_libraries(ex2 ${OpenCV_LIBS})
 
-add_executable (ex2b ex2b.cpp)
-target_link_libraries(ex2b ${OpenCV_LIBS})
-
-add_executable (ex2c ex2c.cpp)
-target_link_libraries(ex2c ${OpenCV_LIBS})
-
-add_executable (ex2d ex2d.cpp)
-target_link_libraries(ex2d ${OpenCV_LIBS})
 
 add_executable (testGolomb testGolomb.cpp)
 target_link_libraries(testGolomb ${OpenCV_LIBS})

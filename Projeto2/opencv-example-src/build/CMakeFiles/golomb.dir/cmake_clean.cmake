@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/golomb.dir/Golomb.cpp.o"
-  "CMakeFiles/golomb.dir/Golomb.cpp.o.d"
   "libgolomb.a"
   "libgolomb.pdb"
 )
