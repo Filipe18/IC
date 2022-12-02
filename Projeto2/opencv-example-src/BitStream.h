@@ -158,7 +158,6 @@ class BitStream {
             return size;
         }
 
-
         // Escreve o que resta no buffer
         void close(){
             if(mode == "w"){

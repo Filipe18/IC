@@ -2,7 +2,6 @@
 #define GOLOMB_H
 
 #include "BitStream.h"
-#include <math.h>
 #include <cstdlib>
 #include <bitset>
 #include <iostream>
@@ -154,6 +153,7 @@ class Golomb {
 Golomb::Golomb(){}
 
 Golomb::Golomb(string filename, char mode, int mValue){
+
     if (mode != 'd' && mode != 'e'){
         cout << "ERROR: invalid mode!" << endl;
         exit(EXIT_FAILURE);
@@ -167,99 +167,64 @@ Golomb::Golomb(string filename, char mode, int mValue){
 }
 
 int Golomb::encode(int number){
-    int q, r, nbits;
+    int q, r, nbits, temp;
     int size = 0;
-    string bit_string, temp; 
+    vector<int> binaryPart;
 
     number = map_number(number);
     q = floor(number/m);
     r = number - q*m;
 
     for (int j = 0; j < q; j++) {
-        cout << 1;
-        //bit_string += '1';
+
         size++;
         BitStreamFile.writeBit(1);
     }
     size++;
-    cout << 0;
     BitStreamFile.writeBit(0);
-    //bit_string += '0';
 
     // check if m is a power of 2
     if (ceil(log2(m)) != floor(log2(m))) {
 
         if (r < pow(2, b) - m){
+            temp = r;
             nbits = b-1;
         }
         else{
-            r += pow(2,b) - m;
+            temp = r + pow(2,b) - m;
             nbits = b;
         }
-        temp = bitset<64>(r).to_string();
     }
     else{
-        temp = bitset<64>(r).to_string();
+        temp = r;
         nbits = b;
-       
     }
-    for (int j = (63 - nbits)+1; j <= 63; j++){
-        bit_string += temp[j];
-    }
-
-    for (int j =0; j < nbits; j++){
-        cout << (bit_string[j] & 1);
-        BitStreamFile.writeBit(bit_string[j] & 1);
+    
+    binaryPart = convertToBin(temp, nbits); 
+    for (int i = 0; i < binaryPart.size(); i++){
+        BitStreamFile.writeBit(binaryPart[i]);
     }
     size += nbits;
-    BitStreamFile.close();
     return size;
 }
 
 int Golomb::decode(){
-
+    
     int r = 0, q = 0;
     int value;
-
     // Count the number of '1' before the first '0'
     while(true){
         value = BitStreamFile.readBit();
-        // Está certo até aqui
         if(value == 0)
             break;
         q++;
     }
-
     // check if m is a power of 2
-    if (ceil(log2(m)) != floor(log2(m))) {
-        int temp = 0;
+    if (ceil(log2(m)) == floor(log2(m))) {
 
-        vector<int> binary = BitStreamFile.readNbits(b-1);
-        binary[b-1] = 0;
-
-        for (int i = b-2; i >= 0; i--){
-            if(binary[i] != 0)
-                r+= pow(2, temp);
-            temp++;
-        } 
-        if(r < pow(2, b) - m){
-            return unmap_number(m*q + r);
-        }
-        else{
-            r = 0, temp =0;
-            binary[b-1] = BitStreamFile.readBit();
-            for (int i = b-1; i >= 0; i--){
-                if(binary[i] != 0)
-                    r+= pow(2, temp);
-                temp++;
-            }
-            return unmap_number(m*q + r - (pow(2, b) - m)); 
-        }
-    }
-    else{
         vector<int> binary = BitStreamFile.readNbits(b);
-    
-        //Get b+1 Lsbits of the origingal value to be decoded (R = (0)+b Lsbit in decimal)
+        
+        //Extract b Msbs of the original word without the first ones and the first zero and calculate R in decimal
         int temp = 0;
         for( int i = b-1; i >= 0; i--){
             if(binary[i] != 0)
@@ -268,8 +233,37 @@ int Golomb::decode(){
         }
         return unmap_number(m*q + r);
     }
+    else{
+        int temp = 0;
 
+        //Extract b-1 Msbs of the original word without the first ones and the first zero and calculate R in decimal
+        vector<int> binary = BitStreamFile.readNbits(b-1);
+        binary[b-1] = 0;
+        for (int i = b-2; i >= 0; i--){
+            if(binary[i] != 0)
+                r+= pow(2, temp);
+            temp++;
+        } 
+        if(r < pow(2, b) - m){
+    
+            return unmap_number(m*q + r);
+        }
+        //Extract b Msbs of the original word without the first ones and the first zero and calculate R in decimal
+        else{
+
+            binary[b-1] = BitStreamFile.readBit();
+            r = 0, temp= 0;
+            for (int i = b-1; i >= 0; i--){
+                if(binary[i] != 0)
+                    r+= pow(2, temp);
+                temp++;
+            }
+            return unmap_number(m*q + r - (pow(2, b) - m)); 
+        }
+    }
+    
     return 0;
+    
 }
 
 int Golomb::map_number(int number){
@@ -333,7 +327,6 @@ void Golomb::encodeHeaderSound(int nFrames, int sampleRate, int channels, int fo
     header.insert(header.end(), temp.begin(), temp.end());
 
     BitStreamFile.writeNbits(header);
-    BitStreamFile.close();
 }
 
 void Golomb::decodeHeaderSound(int header[]){

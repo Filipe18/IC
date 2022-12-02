@@ -2,6 +2,7 @@
 #define AUDIOCODEC_H
 
 #include "Golomb.h"
+
 #include <iostream>
 #include <stdio.h>
 #include <sndfile.h>
@@ -111,11 +112,13 @@ void AudioCodec::compress(const char *fileDst, int num, bool lossy, int num_bits
     
     if(lossy)
         g.encodeNumBitsShift(num_bits_shift);
-
+    //std::ofstream out_file("rn.txt");
     for(int i = 0; i < rn.size(); i++) {
+        
+		//out_file << rn[i] << '\n';
         g.encode(rn[i]);
     }
-
+    //out_file.close();
     g.close();
 
 }
@@ -137,16 +140,19 @@ void AudioCodec::decompress(const char *fileSrc){
 
     if(headerSoundDecoder[0] == 1){
         int num_bits_shift = g.decodeNumBitsShift();
-        for(int i = 0; i < headerSoundDecoder[1]*headerSoundDecoder[4]; i++)
+        for(int i = 0; i < headerSoundDecoder[1]*headerSoundDecoder[4]; i++){
             resChs.push_back(g.decode() << num_bits_shift) ;
+        }
     }
     else{
-        for(int i = 0; i < headerSoundDecoder[1]*headerSoundDecoder[4]; i++)
+        //std::ofstream out_file("resChs.txt");
+        for(int i = 0; i < headerSoundDecoder[1]*headerSoundDecoder[4]; i++){
             resChs.push_back(g.decode());
+            //out_file << resChs[i] << '\n';
+        }
+        //out_file.close();
     }
     
-
-
     for(int i = 0; i < resChs.size()-1; i+=2){
         resl.push_back(resChs[i]);
         resr.push_back(resChs[i+1]);
