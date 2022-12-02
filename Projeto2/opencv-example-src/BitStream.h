@@ -25,6 +25,9 @@ class BitStream {
     int pointerBit;
 
     public:
+
+        BitStream(){}
+
         BitStream(std::string name, std::string tipo){ 
             name = name;
             mode = tipo;
@@ -99,7 +102,8 @@ class BitStream {
         }
 
 
-        void writeNbits(std::vector<int> array){    
+        void writeNbits(std::vector<int> array){  
+              
             if(mode == "r") throw runtime_error("Cannot write in 'r' mode");
             
             int size = array.size();
