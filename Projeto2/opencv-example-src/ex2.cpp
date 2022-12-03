@@ -8,15 +8,24 @@ using namespace cv;
 
 int main(int argc, char *argv[])
 {
+    //char option;
+    cout << "Chose an Option:\n'N' to negative version of an image\n'M' to mirrored version of an image\n'R' to rotate an image by a multiple of 90º\n'I' to increase and decrease the intensity values of an image\n";
+    cout << "Option:";
+    //char* option = {};
+    char option[0];
+    
+    
+    cin >> option;
+    
     //Command line arguments processing
-    if(argc < 3){
-        cerr << "Usage: " << argv[0] << "<alínea> <input_file> <output_file>\n" ;
+    if(argc < 2){
+        cerr << "Usage: " << argv[0] << "<input_file> <output_file>\n" ;
         return 1;
     }
-    char* alinea = {};
-    alinea = argv[1];
-    char *inputfile = argv[2];
-    char *outputfile = argv[3];
+    
+    //alinea = argv[1];
+    char *inputfile = argv[1];
+    char *outputfile = argv[2];
     Mat img = imread(inputfile);
     //Check if image exists
     if(img.empty()){
@@ -24,7 +33,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if(!strcmp(alinea,"a")){
+    if(!strcmp(option,"N")){
+
+        cout << "olaaaaaaaa";
         
         Mat negimg (img.rows, img.cols, img.type());
 
@@ -48,7 +59,7 @@ int main(int argc, char *argv[])
         return 0;
     }
     
-    else if(!strcmp(alinea,"b")){
+    else if(!strcmp(option,"M")){
     
         Mat horizontal (img.rows, img.cols, img.type());
         Mat vertical (img.rows, img.cols, img.type());
@@ -69,7 +80,19 @@ int main(int argc, char *argv[])
 
     }
 
-    else if(!strcmp(alinea,"c")){
+    else if(!strcmp(option,"R")){
+        int multiple;
+        cout << "Choose a number multiple of 90º:";
+        cin >> multiple;
+
+
+        while(multiple % 90 != 0){
+            cout << "The number you chose is not a multiple of 90\n";
+            cout << "Number:";
+            cin >> multiple;
+            
+        }
+        
         
         //Outra forma de se fazer
         //Mat rotateimg (img.rows, img.cols, img.type());
@@ -80,7 +103,9 @@ int main(int argc, char *argv[])
         Point2f center((img.cols - 1) / 2.0, (img.rows - 1) / 2.0);
 
         //Using getRotationMatrix2D() to get the rotation matrix
-        Mat rotation = getRotationMatrix2D(center, -90, 1);
+        //Mat rotation = getRotationMatrix2D(center, -90, 1);
+        Mat rotation = getRotationMatrix2D(center, -multiple, 1);
+
 
         //Saving the resulting image in rotatedimg matrix
         Mat rotatedimg;
@@ -98,14 +123,23 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    else if(!strcmp(alinea,"d")){
+    else if(!strcmp(option,"I")){
+        int increase;
+        int decrease;
+        
+        cout << "Choose a positive number to Increase the intensity of an image:";
+        cin >> increase;
+
+        cout << "Choose a positive number to Decrease the intensity of an image:";
+        cin >> decrease;
+
 
         Mat imgmorelight;
         Mat imglesslight;
 
-        img.convertTo(imgmorelight, -1, 1, 100); //Increase the brightness by 100
+        img.convertTo(imgmorelight, -1, 1, increase); //Increase the brightness
 
-        img.convertTo(imglesslight, -1, 1, -100); //Decrease the brightness by 100
+        img.convertTo(imglesslight, -1, 1, -decrease); //Decrease the brightness
 
         Mat out;
         hconcat(imgmorelight, imglesslight, out);
@@ -139,7 +173,7 @@ int main(int argc, char *argv[])
     }
     
     else{
-        cerr << "Escolha uma alíena existente\n" ;
+        cerr << "Choose a possible option\n" ;
         return 1;
 
     }

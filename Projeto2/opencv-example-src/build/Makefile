@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/filipe/Desktop/IC/Projeto2/opencv-example-src/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testGolomb
-
-# Build rule for target.
-testGolomb: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 testGolomb
-.PHONY : testGolomb
-
-# fast build rule for target.
-testGolomb/fast:
-	$(MAKE) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/build
-.PHONY : testGolomb/fast
-
-#=============================================================================
 # Target rules for targets named ex2
 
 # Build rule for target.
@@ -148,46 +135,6 @@ ex1: cmake_check_build_system
 ex1/fast:
 	$(MAKE) -f CMakeFiles/ex1.dir/build.make CMakeFiles/ex1.dir/build
 .PHONY : ex1/fast
-
-#=============================================================================
-# Target rules for targets named golomb
-
-# Build rule for target.
-golomb: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 golomb
-.PHONY : golomb
-
-# fast build rule for target.
-golomb/fast:
-	$(MAKE) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/build
-.PHONY : golomb/fast
-
-Golomb.o: Golomb.cpp.o
-
-.PHONY : Golomb.o
-
-# target to build an object file
-Golomb.cpp.o:
-	$(MAKE) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.o
-.PHONY : Golomb.cpp.o
-
-Golomb.i: Golomb.cpp.i
-
-.PHONY : Golomb.i
-
-# target to preprocess a source file
-Golomb.cpp.i:
-	$(MAKE) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.i
-.PHONY : Golomb.cpp.i
-
-Golomb.s: Golomb.cpp.s
-
-.PHONY : Golomb.s
-
-# target to generate assembly for a file
-Golomb.cpp.s:
-	$(MAKE) -f CMakeFiles/golomb.dir/build.make CMakeFiles/golomb.dir/Golomb.cpp.s
-.PHONY : Golomb.cpp.s
 
 ex1.o: ex1.cpp.o
 
@@ -243,57 +190,22 @@ ex2.cpp.s:
 	$(MAKE) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/ex2.cpp.s
 .PHONY : ex2.cpp.s
 
-testGolomb.o: testGolomb.cpp.o
-
-.PHONY : testGolomb.o
-
-# target to build an object file
-testGolomb.cpp.o:
-	$(MAKE) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.o
-.PHONY : testGolomb.cpp.o
-
-testGolomb.i: testGolomb.cpp.i
-
-.PHONY : testGolomb.i
-
-# target to preprocess a source file
-testGolomb.cpp.i:
-	$(MAKE) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.i
-.PHONY : testGolomb.cpp.i
-
-testGolomb.s: testGolomb.cpp.s
-
-.PHONY : testGolomb.s
-
-# target to generate assembly for a file
-testGolomb.cpp.s:
-	$(MAKE) -f CMakeFiles/testGolomb.dir/build.make CMakeFiles/testGolomb.dir/testGolomb.cpp.s
-.PHONY : testGolomb.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... testGolomb"
 	@echo "... ex2"
 	@echo "... ex1"
-	@echo "... rebuild_cache"
-	@echo "... golomb"
-	@echo "... Golomb.o"
-	@echo "... Golomb.i"
-	@echo "... Golomb.s"
 	@echo "... ex1.o"
 	@echo "... ex1.i"
 	@echo "... ex1.s"
 	@echo "... ex2.o"
 	@echo "... ex2.i"
 	@echo "... ex2.s"
-	@echo "... testGolomb.o"
-	@echo "... testGolomb.i"
-	@echo "... testGolomb.s"
 .PHONY : help
 
 
