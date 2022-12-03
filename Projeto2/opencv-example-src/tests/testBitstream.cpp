@@ -1,3 +1,5 @@
+//g++ BitStream.h tests/testBitstream.cpp -o tests/testbitstream 
+
 #include "../BitStream.h"
 #include "vector"
 

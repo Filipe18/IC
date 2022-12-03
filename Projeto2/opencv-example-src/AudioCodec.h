@@ -24,38 +24,42 @@ class AudioCodec{
         /**
          * @brief Construct a new Audio Codec object
          * 
-         * @param fileSrc 
+         * @param fileSrc filename path to an audio file
          */
         AudioCodec(const char *fileSrc);
 
         /**
-         * @brief 
+         * @brief Compress an audio file
          * 
-         * @param fileDst 
+         * @param fileDst filename path to a file to store the encoded value
+         * @param num value to choose the order of the predictor that will be use. 
+         * Choosing 1, the predictor will only consider the previous value; 2 it will consider the 2 previous values; and choosing 3 will consider the 3 previous values.
+         * @param lossy value to choose between lossless (0) and lossy (1) encoding.
+         * @param num_bits_shift number of bits to be shifted in the predictor
          */
         void compress(const char *fileDst, int num, bool loosy, int num_bits_shift);
 
         /**
-         * @brief 
-         * 
-         * @param fileSrc 
+         * @brief Decompress an audio file
+
+         * @param fileSrc path to a file were the stored enconded value is.
          */
         void decompress(const char *fileSrc);
 
         /**
-         * @brief 
-         * 
-         * @param audioSamples 
-         */
+         * @brief Lossless Preditor 
+
+         * @param audioSamples vector that contains all the samples of the audio file.
+         */    
         void preditor(std::vector<short> audioSamples);
 
-        /**
-         * @brief 
-         * 
-         * @param vetSrc 
-         * @param num_bits_shift 
-         */
-        void preditorLossy(vector<short> vetSrc, int num_bits_shift);
+         /**
+         * @brief Lossy Preditor 
+         
+         * @param audioSamples vector that contains all the samples of the audio file.
+         * @param num_bits_shift number of bits to be shifted in the predictor
+         */   
+        void preditorLossy(vector<short> audioSamples, int num_bits_shift);
 
     private:
         char* fileSrc;
@@ -154,8 +158,8 @@ void AudioCodec::decompress(const char *fileSrc){
     }
     
     for(int i = 0; i < resChs.size()-1; i+=2){
-        resl.push_back(resChs[i]);
-        resr.push_back(resChs[i+1]);
+        resl.push_back(resChs[i]);          // left channel -> MID Channel
+        resr.push_back(resChs[i+1]);        // right channel -> SIDE channel
     }
 
     g.close();
@@ -226,11 +230,11 @@ void AudioCodec::decompress(const char *fileSrc){
 
 void AudioCodec::preditor(std::vector<short> audioSamples){
     
-    vector<short> left;
-    vector<short> right;
+    vector<short> left, right;
+    
     for(int i = 0; i < chs.size()-1; i+=2){
-        left.push_back(chs[i]);
-        right.push_back(chs[i+1]);
+        left.push_back((chs[i]+chs[i+1])/2);       // left -> MID Channel
+        right.push_back(chs[i]-chs[i+1]);          // right -> SIDE Channel
     }
 
     vector<short> xnl, xnr;
@@ -278,13 +282,12 @@ void AudioCodec::preditor(std::vector<short> audioSamples){
     }
 }
 
-void AudioCodec::preditorLossy(vector<short> vetSrc, int num_bits_shift) {
+void AudioCodec::preditorLossy(vector<short> audioSamples, int num_bits_shift) {
 
-    vector<short> left;
-    vector<short> right;
+    vector<short> left, right;
     for(int i = 0; i < chs.size()-1; i+=2){
-        left.push_back(chs[i]);
-        right.push_back(chs[i+1]);
+        left.push_back((chs[i]+chs[i+1])/2);       // left -> MID Channel
+        right.push_back(chs[i]-chs[i+1]);          // right -> SIDE Channel
     }
 
     vector<int> xnr, xnl;

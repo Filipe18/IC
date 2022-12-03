@@ -1,3 +1,5 @@
+//g++ Golomb.h tests/testGolomb.cpp -o tests/testGolomb 
+
 #include "../Golomb.h"
 
 using namespace std;

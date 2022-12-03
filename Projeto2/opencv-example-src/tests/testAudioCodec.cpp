@@ -1,3 +1,5 @@
+// g++ BitStream.h Golomb.h AudioCodec.h tests/testAudioCodec.cpp -o tests/testAudioCoded -lsndfile
+
 #include "../AudioCodec.h"
 
 using namespace std;
@@ -31,8 +33,8 @@ int main(int argc, char* argv[]) {
             cin >> num_bits_shift;
         }
     }
-    c.compress("compress.bin", op2, op1, num_bits_shift);
+    c.compress("compress.txt", op2, op1, num_bits_shift);
 
-    c.decompress("compress.bin");
+    c.decompress("compress.txt");
     
 }  

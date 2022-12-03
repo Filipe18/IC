@@ -11,6 +11,7 @@
 
 using namespace std;
 
+//Auxiliary function to convert int to binary with 'numBits' bits
 
 vector<int> convertToBin(int number, int numBits){
     
@@ -34,6 +35,8 @@ vector<int> convertToBin(int number, int numBits){
 
     return binaryNum;
 }
+
+//Auxiliary function to convert integer vector from bin with 'size' bits to int
 
 int convertToInt(vector<int> bit_string, int size){
     int number = 0;
@@ -63,6 +66,7 @@ class Golomb {
 
         /**
          * Encode a number (positive or negative) using golomb code.
+
          * @param n Integer number, positive or negative to be encoded.
          * @return size of encoded string
          * */
@@ -70,6 +74,7 @@ class Golomb {
 
         /**
          * Decode a number using golomb code.
+
          * @return the decoded value.
          * */
         int decode();
@@ -92,56 +97,62 @@ class Golomb {
 
         /**
          * Set value of m
+
          * @param mValue integer that represents the m
          * */
         void setM(int mValue);
 
         /**
-         * 
-         * @param m
-         */
+         * Encode the golomb parameter m in binary (write it in the binary file)
+
+         * @param n integer value that represents the m
+         * */
         void encodeM(int m);
 
         /**
-         * @brief 
-         * 
-         * @return int 
-         */
+         * Read in binary the value of the golomb m
+
+         * @return an integer that represents the m
+         * */
         int decodeM();
 
         /**
-         * @brief 
-         * 
-         * @param nFrames 
-         * @param sampleRate 
-         * @param channels 
-         * @param format 
-         * @param lossy 
-         */
+         * Encode in binary the header of a soundfile
+
+         * @param nFrames number of frames of the audio file
+         * @param sampleRate of the audio file
+         * @param channels of the audiofile
+         * @param format of the audiofile
+         * @param lossy boolean that indicates if coding option is lossy or lossless
+         **/
         void encodeHeaderSound(int nFrames, int sampleRate, int channels, int format, bool lossy);
 
         /**
-         * @brief 
+         * Decode the binary header of the soundfile
+
+         * @param header integer array of size 5 that will contain Codec option(lossy, lossless), nFrames, sampleRate, numChannels and format
          * 
-         */
+         **/
         void decodeHeaderSound(int header[]);
 
         /**
-         * @brief brief description
-         * @param num_bits_shift 
+         * Encode number of bits to be shifted in binary to save it in the header of encoded file
+
+         * @param shamt quantization step
          **/
         void encodeNumBitsShift(int num_bits_shift);
 
         /**
-         * @brief brief description
-         * @return 
+         * Decode number of bits to be shifted
+        
+         * @return number of bits to be shifted
          **/
         int decodeNumBitsShift();
 
         /**
-         * @brief 
-         * 
-         */
+         * Close the golomb stream.
+
+         * */
         void close();
 
     private:
