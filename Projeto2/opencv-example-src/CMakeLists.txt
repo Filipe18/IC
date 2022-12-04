@@ -13,7 +13,6 @@ SET (CMAKE_CXX_FLAGS_DEBUG "-g3 -fsanitize=address")
 SET (BASE_DIR ${CMAKE_SOURCE_DIR} )
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BASE_DIR}/../opencv-example-bin)
 
-add_library(golomb Golomb.cpp)
 
 add_executable (ex1 ex1.cpp)
 target_link_libraries(ex1 ${OpenCV_LIBS})
@@ -21,6 +20,9 @@ target_link_libraries(ex1 ${OpenCV_LIBS})
 add_executable (ex2 ex2.cpp)
 target_link_libraries(ex2 ${OpenCV_LIBS})
 
+add_executable(testAudioCodec tests/testAudioCodec.cpp)
+target_link_libraries(testAudioCodec sndfile)
 
-add_executable (testGolomb testGolomb.cpp)
-target_link_libraries(testGolomb ${OpenCV_LIBS})
+add_executable (testImageCodec tests/testImageCodec.cpp)
+target_link_libraries(testImageCodec ${OpenCV_LIBS})
+

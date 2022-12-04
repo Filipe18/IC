@@ -1,4 +1,6 @@
-/home/filipe/Desktop/IC/Projeto2/opencv-example-src/build/CMakeFiles/rebuild_cache.dir
-/home/filipe/Desktop/IC/Projeto2/opencv-example-src/build/CMakeFiles/edit_cache.dir
-/home/filipe/Desktop/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2.dir
-/home/filipe/Desktop/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex1.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex1.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/ex2.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/testAudioCodec.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/testImageCodec.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/edit_cache.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-src/build/CMakeFiles/rebuild_cache.dir

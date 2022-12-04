@@ -55,7 +55,7 @@ class AudioCodec{
 
          /**
          * @brief Lossy Preditor 
-         
+
          * @param audioSamples vector that contains all the samples of the audio file.
          * @param num_bits_shift number of bits to be shifted in the predictor
          */   
@@ -341,4 +341,5 @@ void AudioCodec::preditorLossy(vector<short> audioSamples, int num_bits_shift) {
         }
     }
 }
+
 #endif

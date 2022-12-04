@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -std=c++17 -pthread -O3 CMakeFiles/testAudioCodec.dir/tests/testAudioCodec.cpp.o -o /home/fastmiguel099/Documents/Universidade/IC/Projeto2/opencv-example-bin/testAudioCodec  -lsndfile 

@@ -33,8 +33,8 @@ int main(int argc, char* argv[]) {
             cin >> num_bits_shift;
         }
     }
-    c.compress("compress.txt", op2, op1, num_bits_shift);
+    c.compress("compressAudio.bin", op2, op1, num_bits_shift);
 
-    c.decompress("compress.txt");
+    c.decompress("compressAudio.bin");
     
 }  
