@@ -22,3 +22,27 @@ Ir a `Projeto2/opencv-example-src` e fazer make
     Depois disto é questionado sobre o que deseja fazer com o programa.
 
 <br>
+
+### Exercício 3
+    
+    ../opencv-example-bin/testGolomb  
+
+<br>
+
+### Exercício 4
+    
+    ../opencv-example-bin/testAudioCodec
+
+<br>
+
+### Exercício 5
+    
+    ../opencv-example-bin/
+
+<br>
+
+### Exercício 6
+    
+    ../opencv-example-bin/testImageCodec
+
+<br>
