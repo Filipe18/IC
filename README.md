@@ -32,8 +32,8 @@ Ir a `Projeto2/opencv-example-src` e fazer make
 ### Exercício 4
     
     ../opencv-example-bin/testAudioCodec <input_file>
-     Depois disto é questionado sobre o que deseja fazer com o programa.
      Para escolher o lossless codec insira '0' na primeira opção no terminal.
+     Depois escolher o preditor que deseja usar (1,2 ou 3).
      O resultado vai ser armazenado no ficheiro "out.wav"
 
 <br>
@@ -43,6 +43,8 @@ Ir a `Projeto2/opencv-example-src` e fazer make
     ../opencv-example-bin/testAudioCodec <input_file>
      Depois disto é questionado sobre o que deseja fazer com o programa.
      Para escolher o lossy codec insira '1' na primeira opção no terminal.
+     Depois escolher o preditor que deseja usar (1,2 ou 3).
+     Depois escolher o número de bits para a quantização.
      O resultado vai ser armazenado no ficheiro "out.wav"
 
 <br>
