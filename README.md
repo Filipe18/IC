@@ -38,7 +38,7 @@ Ir a `Projeto2/opencv-example-src` e fazer make
 
 <br>
 
-### Exercício 4
+### Exercício 5
     
     ../opencv-example-bin/testAudioCodec <input_file>
      Depois disto é questionado sobre o que deseja fazer com o programa.
