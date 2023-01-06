@@ -1,0 +1,5 @@
+/home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-src/build/CMakeFiles/fcm_test.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-src/build/CMakeFiles/lang.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-src/build/CMakeFiles/findlang.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-src/build/CMakeFiles/edit_cache.dir
+/home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-src/build/CMakeFiles/rebuild_cache.dir

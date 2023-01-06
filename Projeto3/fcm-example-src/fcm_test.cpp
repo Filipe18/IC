@@ -1,5 +1,5 @@
 #include <iostream>
-#include "fcm.h"
+#include "Fcm.h"
 
 using namespace std;
 
@@ -11,8 +11,6 @@ int main(int argc, char* argv[])
     }
    
     Fcm fcm(argv[1], stoi(argv[2]), atof(argv[3]));
-
-    fcm.openfile();
 
     fcm.processText();
 

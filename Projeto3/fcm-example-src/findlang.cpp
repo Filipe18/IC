@@ -1,15 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include "fcm.h"
+#include "Fcm.h"
 
 int main(int argc, char* argv[]){
 
     int k=stoi(argv[2]);
-    double alpha = stod(argv[3]);
+    double alpha = atof(argv[3]);
     double best_nBits = 0;
     string lang;
 
@@ -24,20 +21,21 @@ int main(int argc, char* argv[]){
 
         double distance=0;
 
-        Fcm fcm(texts[i], k, alpha;
-
-        fcm.openfile();
+        Fcm fcm(texts[i], k, alpha);
 
         fcm.processText();
 
-        cout << fcm.calculateEntropy(); << endl;
+        cout << fcm.calculateEntropy() << endl;
 
-        map<string, map<char, int>> model = fcm.getModel;
-        map<string, int> contexts = fcm.getContexts;
-        vector<char> symbolAlphabet = fcm.getSymbolAlphabet;
+        map<string, map<char, int>> model = fcm.getModel();
+        map<string, int> contexts = fcm.getContexts();
+        vector<char> symbolAlphabet = fcm.getSymbolAlphabet();
         
         fcm.close();
 
+        fstream target; 
+        target.open(argv[1]);
+        string context = "";
         int nLetters=0;
         char c;
         while(target.get(c)){
@@ -57,11 +55,11 @@ int main(int argc, char* argv[]){
 
         double nBits = distance/nLetters;
         if(i == 0){
-            lang = filelist[0];
+            lang = texts[0];
             best_nBits = nBits;
         }
         else{
-            lang = filelist[i];
+            lang = texts[i];
             best_nBits = nBits;
         }
     }
