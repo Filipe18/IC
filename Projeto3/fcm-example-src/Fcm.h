@@ -132,11 +132,8 @@ double Fcm::calculateEntropy(){
 }
 
 double Fcm::calculateDistance(string input_file) {
+    
     double distance = 0;
-
-    map<string, map<char, int>> model = getModel();
-    map<string, int> contexts = getContexts();
-    vector<char> symbolAlphabet = getSymbolAlphabet();
 
     fstream target;
     target.open(input_file);
@@ -165,12 +162,9 @@ double Fcm::calculateDistance(string input_file) {
 }
 
 double Fcm::calculateDistanceSegment(string input) {
+
     double distance = 0;
-
-    map<string, map<char, int>> model = getModel();
-    map<string, int> contexts = getContexts();
-    vector<char> symbolAlphabet = getSymbolAlphabet();
-
+    
     string context = "";
 
     int total = 0;
@@ -191,8 +185,7 @@ double Fcm::calculateDistanceSegment(string input) {
     }
 
     return distance/total;
-  }
-
+}
 
 map<string, map<char, int>> Fcm::getModel(){
 

@@ -21,11 +21,9 @@ int main(int argc, char* argv[]){
     for(int i = 0; i < 10; i++){
 
         Fcm fcm(texts[i], k, alpha);
-
         fcm.processText();
-
         double distance = fcm.calculateDistance(argv[1]);
-
+    
         if(i == 0){
             lang = texts[0];
             best_distance = distance;
