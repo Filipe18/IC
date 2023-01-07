@@ -20,7 +20,7 @@ class Fcm{
 
         double alpha;
 
-        int nLetters;
+        int total;;
         
         fstream f;
 
@@ -33,7 +33,7 @@ class Fcm{
 
         double calculateEntropy();
 
-        int getNumLetters();
+        double calculateDistance(string input_file);
 
         map<string, map<char, int>> getModel();
     
@@ -57,7 +57,7 @@ Fcm::Fcm(string file, int k_value, double alpha_value){
 
     k = k_value;
     alpha = alpha_value;
-    nLetters = 0;
+    total = 0;
 }
 
 void Fcm::processText(){
@@ -78,7 +78,7 @@ void Fcm::processText(){
         if (find(symbolAlphabet.begin(), symbolAlphabet.end(), c) == symbolAlphabet.end())
             symbolAlphabet.push_back(c);
 
-        if(context.length() == k + 1){
+        if(context.length() == (size_t)(k + 1)){
             string temp = context.substr(0, k);
             contexts[temp]++;
             // Update the context count
@@ -92,7 +92,7 @@ void Fcm::processText(){
             }
             context = context.substr(1);
             // Increment the total number of letters
-            nLetters++;
+            total++;
         }
     }
 }
@@ -106,9 +106,13 @@ double Fcm::calculateEntropy(){
         //cout << "CTX: "<< it->first << "\t" << "TOTAL: "<< it->second << "\t";
         string context = it->first;
         map<char, int> symbolCounts = model[context];
+        
+        int totalEntrysCtx = 0;
+        for (auto it1 = symbolCounts.begin(); it1 != symbolCounts.end(); it1++){
+            totalEntrysCtx += it1->second;
+        }
 
         double contextEntropy = 0;
-
         // Calculate the probability of each symbol in the alphabet given the context
         for (auto symbol : symbolAlphabet)
         {
@@ -118,17 +122,45 @@ double Fcm::calculateEntropy(){
             //cout << "'" << symbol << "': " << model[it->first][symbol] << "\t";   
         }
         //cout << '\n';
-        totalEntropy += contextEntropy * symbolCounts.size() / nLetters;
+        totalEntropy += contextEntropy * totalEntrysCtx / total;
 
     }
 
     return totalEntropy;
 }
 
-int Fcm::getNumLetters(){
+double Fcm::calculateDistance(string input_file) {
+    double distance = 0;
 
-    return nLetters;
-}
+    map<string, map<char, int>> model = getModel();
+    map<string, int> contexts = getContexts();
+    vector<char> symbolAlphabet = getSymbolAlphabet();
+
+    fstream target;
+    target.open(input_file);
+
+    string context = "";
+
+    int total = 0;
+    char c;
+    while (target.get(c)) {
+
+      if (c == '\n' or c == '\t') continue;
+
+      context += c;
+
+      if (context.length() == (size_t)(k + 1)) {
+        string temp = context.substr(0, k);
+        distance += -log2((double)(alpha + model[temp][c]) /
+                         (contexts[temp] + alpha * symbolAlphabet.size()));
+        context = context.substr(1);
+
+        total++;
+      }
+    }
+
+    return distance/total;
+  }
 
 map<string, map<char, int>> Fcm::getModel(){
 

@@ -7,7 +7,7 @@ int main(int argc, char* argv[]){
 
     int k=stoi(argv[2]);
     double alpha = atof(argv[3]);
-    double best_nBits = 0;
+    double best_distance = 0;
     string lang;
 
     if(argc < 4){
@@ -15,56 +15,28 @@ int main(int argc, char* argv[]){
         exit(EXIT_FAILURE);
     }
 
-    string texts[] = {"textos/dutch.txt","textos/eng.txt","textos/esp.txt","textos/fin.txt","textos/fr.txt","textos/ger.txt","textos/ita.txt","textos/pol.txt","textos/pt.txt","textos/swe.txt"};
+    string texts[] = {"textos/dutch.txt","textos/eng.txt","textos/esp.txt","textos/fin.txt","textos/fr.txt","textos/ger.txt","textos/ita.txt",
+                        "textos/pol.txt","textos/pt.txt","textos/swe.txt"};
 
     for(int i = 0; i < 10; i++){
-
-        double distance=0;
 
         Fcm fcm(texts[i], k, alpha);
 
         fcm.processText();
 
-        cout << fcm.calculateEntropy() << endl;
+        double distance = fcm.calculateDistance(argv[1]);
 
-        map<string, map<char, int>> model = fcm.getModel();
-        map<string, int> contexts = fcm.getContexts();
-        vector<char> symbolAlphabet = fcm.getSymbolAlphabet();
-        
-        fcm.close();
-
-        fstream target; 
-        target.open(argv[1]);
-        string context = "";
-        int nLetters=0;
-        char c;
-        while(target.get(c)){
-            if(c == '\n' or c == '\t') continue;
-
-            context += c;
-
-            if(context.length() == k + 1){
-                
-                string temp = context.substr(0,k);
-                distance += -log2((double) (alpha + model[temp][c]) / (contexts[temp] + alpha * symbolAlphabet.size()));
-                context = context.substr(1);
-                
-                nLetters++;
-            }
-        }
-
-        double nBits = distance/nLetters;
         if(i == 0){
             lang = texts[0];
-            best_nBits = nBits;
+            best_distance = distance;
         }
-        else{
+        else if(distance < best_distance){
             lang = texts[i];
-            best_nBits = nBits;
+            best_distance = distance;
         }
     }
 
-    cout << "Linguagem : " << lang << ", com estimativa de : " << best_nBits << " bits por simbolo" << endl;
+    cout << "Linguagem : " << lang << ", com estimativa de : " << best_distance << " bits por simbolo" << endl;
 
     return 0;
 
