@@ -46,4 +46,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/fcm_test.dir/DependInfo.cmake"
   "CMakeFiles/lang.dir/DependInfo.cmake"
   "CMakeFiles/findlang.dir/DependInfo.cmake"
+  "CMakeFiles/locatelang.dir/DependInfo.cmake"
   )

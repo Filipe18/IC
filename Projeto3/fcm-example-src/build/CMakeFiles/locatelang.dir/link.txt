@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/locatelang.dir/locatelang.cpp.o -o /home/fastmiguel099/Documents/Universidade/IC/Projeto3/fcm-example-bin/locatelang 

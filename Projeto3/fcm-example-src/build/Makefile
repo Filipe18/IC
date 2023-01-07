@@ -155,6 +155,19 @@ findlang/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/findlang.dir/build.make CMakeFiles/findlang.dir/build
 .PHONY : findlang/fast
 
+#=============================================================================
+# Target rules for targets named locatelang
+
+# Build rule for target.
+locatelang: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 locatelang
+.PHONY : locatelang
+
+# fast build rule for target.
+locatelang/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/build
+.PHONY : locatelang/fast
+
 fcm_test.o: fcm_test.cpp.o
 .PHONY : fcm_test.o
 
@@ -227,6 +240,30 @@ lang.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lang.dir/build.make CMakeFiles/lang.dir/lang.cpp.s
 .PHONY : lang.cpp.s
 
+locatelang.o: locatelang.cpp.o
+.PHONY : locatelang.o
+
+# target to build an object file
+locatelang.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.o
+.PHONY : locatelang.cpp.o
+
+locatelang.i: locatelang.cpp.i
+.PHONY : locatelang.i
+
+# target to preprocess a source file
+locatelang.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.i
+.PHONY : locatelang.cpp.i
+
+locatelang.s: locatelang.cpp.s
+.PHONY : locatelang.s
+
+# target to generate assembly for a file
+locatelang.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.s
+.PHONY : locatelang.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -238,6 +275,7 @@ help:
 	@echo "... fcm_test"
 	@echo "... findlang"
 	@echo "... lang"
+	@echo "... locatelang"
 	@echo "... fcm_test.o"
 	@echo "... fcm_test.i"
 	@echo "... fcm_test.s"
@@ -247,6 +285,9 @@ help:
 	@echo "... lang.o"
 	@echo "... lang.i"
 	@echo "... lang.s"
+	@echo "... locatelang.o"
+	@echo "... locatelang.i"
+	@echo "... locatelang.s"
 .PHONY : help
 
 

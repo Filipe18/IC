@@ -35,6 +35,8 @@ class Fcm{
 
         double calculateDistance(string input_file);
 
+        double calculateDistanceSegment(string input);
+
         map<string, map<char, int>> getModel();
     
         map<string, int> getContexts();
@@ -160,7 +162,37 @@ double Fcm::calculateDistance(string input_file) {
     }
 
     return distance/total;
+}
+
+double Fcm::calculateDistanceSegment(string input) {
+    double distance = 0;
+
+    map<string, map<char, int>> model = getModel();
+    map<string, int> contexts = getContexts();
+    vector<char> symbolAlphabet = getSymbolAlphabet();
+
+    string context = "";
+
+    int total = 0;
+    for (char c : input) {
+
+      if (c == '\n' or c == '\t') continue;
+
+      context += c;
+
+      if (context.length() == (size_t)(k + 1)) {
+        string temp = context.substr(0, k);
+        distance += -log2((double)(alpha + model[temp][c]) /
+                         (contexts[temp] + alpha * symbolAlphabet.size()));
+        context = context.substr(1);
+
+        total++;
+      }
+    }
+
+    return distance/total;
   }
+
 
 map<string, map<char, int>> Fcm::getModel(){
 

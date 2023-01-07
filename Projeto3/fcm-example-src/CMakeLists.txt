@@ -16,3 +16,5 @@ add_executable (fcm_test fcm_test.cpp)
 add_executable (lang lang.cpp)
 
 add_executable (findlang findlang.cpp)
+
+add_executable (locatelang locatelang.cpp)
