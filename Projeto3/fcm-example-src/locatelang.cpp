@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
                     minLanguage = lang.first;
                 }
             }
-            cout << "Da posição " << start_pos << "(que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
+            cout << "Da posição " << start_pos << " (que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
             segment = "";
         }
     }
@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
                 minLanguage = lang.first;
             }
         }
-        cout << "Da posição " << start_pos << "(que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
+        cout << "Da posição " << start_pos << " (que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
     }
     return 0;
 }
