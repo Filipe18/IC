@@ -96,7 +96,6 @@ void Fcm::processText(){
     model.clear();
     contexts.clear();
     symbolAlphabet.clear();
-
     string context = "";
     // Read characters from the input file stream one by one until the end of the file is reached
     char c;

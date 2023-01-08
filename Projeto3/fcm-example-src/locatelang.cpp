@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
             map<string, double> language_averages;
             int start_pos = total - window_size;
             int end_pos = total - 1;
+            char start_char = segment[0];
 
             for (int i = 5; i < argc; i++) {
                 Fcm fcm(argv[i], k, alpha);
@@ -48,7 +49,7 @@ int main(int argc, char* argv[]) {
                     minLanguage = lang.first;
                 }
             }
-            cout << "Da posição " << start_pos << " até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
+            cout << "Da posição " << start_pos << "(que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
             segment = "";
         }
     }
@@ -57,7 +58,8 @@ int main(int argc, char* argv[]) {
         map<string, double> language_averages;
         int start_pos = total - segment.length();
         int end_pos = total - 1;
-
+        char start_char = segment[0];
+        
         for (int i = 5; i < argc; i++) {
             Fcm fcm(argv[i], k, alpha);
             fcm.processText();
@@ -73,7 +75,7 @@ int main(int argc, char* argv[]) {
                 minLanguage = lang.first;
             }
         }
-        cout << "Da posição " << start_pos << " até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
+        cout << "Da posição " << start_pos << "(que corresponde ao char " << start_char <<") até à posição " << end_pos << " a linguagem é " << minLanguage << endl;
     }
     return 0;
 }
