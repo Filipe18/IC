@@ -6,24 +6,22 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-
-    int k = stoi(argv[2]);
-    double alpha = atof(argv[3]);
         
     if(argc < 5){
-        cout << "Wrong number of arguments!" << endl;
+        cerr << "Usage: " << argv[0] << " <file_r> <model_order> <alpha> <file_t>\n" ;
         exit(EXIT_FAILURE);
     }
-   
+    
+    int k = stoi(argv[2]);
+    double alpha = atof(argv[3]);
+    
     Fcm fcm(argv[1], k, alpha);
 
     fcm.processText();
 
-    cout << fcm.calculateEntropy() << endl;
-
     double distance = fcm.calculateDistance(argv[4]);
 
-    cout << "Estimativa de bits por símbolo: " << distance << endl;
+    cout << "Estimativa de bits: " << distance << endl;
 
     fcm.close();
     return 0;

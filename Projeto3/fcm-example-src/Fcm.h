@@ -7,6 +7,8 @@
 
 using namespace std;
 
+#define ALPHABETH_SIZE 27 
+
 class Fcm{
     private:
 
@@ -27,22 +29,48 @@ class Fcm{
     public:
         Fcm();
 
+        /**
+         * @brief Construct a new Fcm object
+         * 
+         * @param file 
+         * @param k 
+         * @param alpha 
+         */
         Fcm(string file, int k, double alpha);
 
+        /**
+         * @brief Reads characters from an input file and builds the language model
+         * 
+         */
         void processText();
 
+        /**
+         * @brief calculates the entropy of the constructed language model
+         * 
+         * @return double
+         */
         double calculateEntropy();
 
+        /**
+         * @brief calculates the distance between the constructed language model and an input text file
+         * 
+         * @param input_file 
+         * @return double
+         */
         double calculateDistance(string input_file);
 
+        /**
+         * @brief calculates the distance between the constructed language model and an input text segment
+         * 
+         * @param input 
+         * @return double 
+         */
         double calculateDistanceSegment(string input);
 
-        map<string, map<char, int>> getModel();
-    
-        map<string, int> getContexts();
-
-        vector<char> getSymbolAlphabet();
-
+        /**
+         * @brief closes open file stream to read text data
+         * 
+         */
         void close();
 };
 
@@ -100,12 +128,12 @@ void Fcm::processText(){
 }
 
 double Fcm::calculateEntropy(){
+
     double totalEntropy = 0;
-    cout << "k -> " << k << '\t' << "alpha -> " << alpha<< endl;
     // Iterate through all contexts in the model
     for (auto it = contexts.begin(); it != contexts.end(); it++)
     {
-        //cout << "CTX: "<< it->first << "\t" << "TOTAL: "<< it->second << "\t";
+        
         string context = it->first;
         map<char, int> symbolCounts = model[context];
         
@@ -115,15 +143,14 @@ double Fcm::calculateEntropy(){
         }
 
         double contextEntropy = 0;
-        // Calculate the probability of each symbol in the alphabet given the context
         for (auto symbol : symbolAlphabet)
         {
             int count = symbolCounts[symbol];   
-            double probability = (count + alpha) / (it->second + alpha * symbolAlphabet.size());
+            double probability = (count + alpha) / (it->second + alpha * ALPHABETH_SIZE);
             contextEntropy += -probability * log2(probability);
-            //cout << "'" << symbol << "': " << model[it->first][symbol] << "\t";   
+           
         }
-        //cout << '\n';
+      
         totalEntropy += contextEntropy * totalEntrysCtx / total;
 
     }
@@ -140,25 +167,22 @@ double Fcm::calculateDistance(string input_file) {
 
     string context = "";
 
-    int total = 0;
     char c;
     while (target.get(c)) {
 
-      if (c == '\n' or c == '\t') continue;
+        if (c == '\n' or c == '\t') continue;
 
-      context += c;
+        context += c;
 
-      if (context.length() == (size_t)(k + 1)) {
-        string temp = context.substr(0, k);
-        distance += -log2((double)(alpha + model[temp][c]) /
-                         (contexts[temp] + alpha * symbolAlphabet.size()));
-        context = context.substr(1);
-
-        total++;
-      }
+        if (context.length() == (size_t)(k + 1)) {
+            string temp = context.substr(0, k);
+            distance += -log2((double)(alpha + model[temp][c]) /
+                                (contexts[temp] + alpha * ALPHABETH_SIZE));
+            context = context.substr(1);
+        }
     }
 
-    return distance/total;
+    return distance;
 }
 
 double Fcm::calculateDistanceSegment(string input) {
@@ -167,39 +191,22 @@ double Fcm::calculateDistanceSegment(string input) {
     
     string context = "";
 
-    int total = 0;
     for (char c : input) {
 
-      if (c == '\n' or c == '\t') continue;
+        if (c == '\n' or c == '\t') continue;
 
-      context += c;
+        context += c;
 
-      if (context.length() == (size_t)(k + 1)) {
+        if (context.length() == (size_t)(k + 1)) {
         string temp = context.substr(0, k);
         distance += -log2((double)(alpha + model[temp][c]) /
-                         (contexts[temp] + alpha * symbolAlphabet.size()));
+                            (contexts[temp] + alpha * ALPHABETH_SIZE));
         context = context.substr(1);
 
-        total++;
-      }
+        }
     }
 
-    return distance/total;
-}
-
-map<string, map<char, int>> Fcm::getModel(){
-
-    return model;
-}
-
-map<string, int> Fcm::getContexts(){
-
-    return contexts;
-}
-
-vector<char> Fcm::getSymbolAlphabet(){
-
-    return symbolAlphabet;
+    return distance;
 }
 
 void Fcm::close(){
