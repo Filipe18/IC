@@ -31,7 +31,7 @@ Ir a `Projeto3/fcm-example-src` e fazer make
     
     ../fcm-example-bin/findlang <model_file> <k> <alpha> [<textfile> ... <textfile>]
     Exemplo:
-    ../fcm-example-bin/findlang textos/teste.txt 4 0.1 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt textos/ger.txt                  textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
+    ../fcm-example-bin/findlang textos/teste.txt 4 0.1 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt textos/ger.txt      textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
 
 <br>
 
@@ -39,7 +39,7 @@ Ir a `Projeto3/fcm-example-src` e fazer make
     
     ../fcm-example-bin/locatelang <model_file> <k> <alpha> <window_size> [<textfile> ... <textfile>]
     Exemplo:
-    ../fcm-example-bin/locatelang textos/locatelang.txt 4 0.1 3000 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt                    textos/ger.txt textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
+    ../fcm-example-bin/locatelang textos/locatelang.txt 4 0.1 3000 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt      textos/ger.txt textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
 
 <br>
 
