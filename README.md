@@ -2,14 +2,16 @@
 <h1 align="center">IC: Projeto 2</h1> 
 
 ## Compilar: 
-Ir a `Projeto2/opencv-example-src` e fazer make
+Ir a `Projeto3/fcm-example-src` e fazer make
 
 
 <br>
 
 ### Exercício 1
     
-    ../opencv-example-bin/ex1 <input_file> <output_file>
+    ../fcm-example-bin/fcm_test <input_file> <k> <alpha>
+    Exemplo:
+    ../fcm-example-bin/fcm_test ./textos/dutch.txt 4 0.1
 
 <br>
 
@@ -18,8 +20,10 @@ Ir a `Projeto2/opencv-example-src` e fazer make
 
 ### Exercício 2
     
-    ../opencv-example-bin/ex2  <imput_file> <output_file>
-    Depois disto é questionado sobre o que deseja fazer com o programa.
+    
+    ../fcm-example-bin/lang  <model_file> <k> <alpha> <input_file>
+    Exemplo
+    ../fcm-example-bin/lang ./textos/dutch.txt 4 0.1 ./textos/pt.txt
 
 <br>
 
@@ -38,20 +42,4 @@ Ir a `Projeto2/opencv-example-src` e fazer make
 
 <br>
 
-### Exercício 4
-    
-    ../opencv-example-bin/testAudioCodec <input_file>
-     Depois disto é questionado sobre o que deseja fazer com o programa.
-     Para escolher o lossy codec insira '1' na primeira opção no terminal.
-     Depois escolher o preditor que deseja usar (1,2 ou 3).
-     Depois escolher o número de bits para a quantização.
-     O resultado vai ser armazenado no ficheiro "out.wav"
 
-<br>
-
-### Exercício 6
-    
-    ../opencv-example-bin/testImageCodec <input_file>
-     O resultado vai ser armazenado no ficheiro "output.ppm"
-
-<br>
