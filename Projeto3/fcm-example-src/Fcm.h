@@ -136,11 +136,6 @@ double Fcm::calculateEntropy(){
         string context = it->first;
         map<char, int> symbolCounts = model[context];
         
-        int totalEntrysCtx = 0;
-        for (auto it1 = symbolCounts.begin(); it1 != symbolCounts.end(); it1++){
-            totalEntrysCtx += it1->second;
-        }
-
         double contextEntropy = 0;
         for (auto symbol : symbolAlphabet)
         {
@@ -150,7 +145,7 @@ double Fcm::calculateEntropy(){
            
         }
       
-        totalEntropy += contextEntropy * totalEntrysCtx / total;
+        totalEntropy += contextEntropy * it->second / total;
 
     }
 
@@ -197,11 +192,10 @@ double Fcm::calculateDistanceSegment(string input) {
         context += c;
 
         if (context.length() == (size_t)(k + 1)) {
-        string temp = context.substr(0, k);
-        distance += -log2((double)(alpha + model[temp][c]) /
-                            (contexts[temp] + alpha * ALPHABETH_SIZE));
-        context = context.substr(1);
-
+            string temp = context.substr(0, k);
+            distance += -log2((double)(alpha + model[temp][c]) /
+                                (contexts[temp] + alpha * ALPHABETH_SIZE));
+            context = context.substr(1);
         }
     }
 
