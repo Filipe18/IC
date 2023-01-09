@@ -21,24 +21,25 @@ Ir a `Projeto3/fcm-example-src` e fazer make
 ### Exercício 2
     
     
-    ../fcm-example-bin/lang  <model_file> <k> <alpha> <input_file>
-    Exemplo
+    ../fcm-example-bin/lang  <model_file> <k> <alpha> <text_file>
+    Exemplo:
     ../fcm-example-bin/lang ./textos/dutch.txt 4 0.1 ./textos/pt.txt
 
 <br>
 
 ### Exercício 3
     
-    ../opencv-example-bin/testGolomb 
+    ../fcm-example-bin/findlang <model_file> <k> <alpha> [<textfile> ... <textfile>]
+    Exemplo:
+    ../fcm-example-bin/findlang textos/teste.txt 4 0.1 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt textos/ger.txt                  textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
 
 <br>
 
 ### Exercício 4
     
-    ../opencv-example-bin/testAudioCodec <input_file>
-     Para escolher o lossless codec insira '0' na primeira opção no terminal.
-     Depois escolher o preditor que deseja usar (1,2 ou 3).
-     O resultado vai ser armazenado no ficheiro "out.wav"
+    ../fcm-example-bin/locatelang <model_file> <k> <alpha> <window_size> [<textfile> ... <textfile>]
+    Exemplo:
+    ../fcm-example-bin/locatelang textos/locatelang.txt 4 0.1 3000 textos/dutch.txt textos/eng.txt textos/esp.txt textos/fin.txt textos/fr.txt                    textos/ger.txt textos/ita.txt textos/pol.txt textos/pt.txt textos/swe.txt
 
 <br>
 
